@@ -1,0 +1,780 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>旅遊產業日語投影片</title>
+<meta name="description" content="115-1 旅遊產業日語（進修部）上課用投影片：言い換え、オノマトペ、四大文化模組、Podcast、簡報與 QA 應變。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1b1d22;
+    --paper: #f6f4ec;
+    --paper-2: #ffffff;
+    --border: #ddd9cb;
+    --ink: #2a2924;
+    --muted: #726e63;
+    --indigo: #223f6b;
+    --indigo-soft: #e6ebf1;
+    --indigo-line: #c3cedd;
+    --seal: #a3392f;
+    --seal-soft: #f3e2df;
+    --moss: #4f6b3a;
+    --moss-soft: #e7eedf;
+    --gold: #8a6512;
+    --gold-soft: #f5ecd6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #1e2126; --paper-2: #262a31; --border: #3a3e47; --ink: #ecebe4; --muted: #a4a196;
+      --indigo: #8fadd9; --indigo-soft: #232f42; --indigo-line: #33456a;
+      --seal: #e0968c; --seal-soft: #33231f; --moss: #a9c78f; --moss-soft: #232c1e; --gold: #e0bd6a; --gold-soft: #312a19;
+      --bg: #0e0f12;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #1e2126; --paper-2: #262a31; --border: #3a3e47; --ink: #ecebe4; --muted: #a4a196;
+    --indigo: #8fadd9; --indigo-soft: #232f42; --indigo-line: #33456a;
+    --seal: #e0968c; --seal-soft: #33231f; --moss: #a9c78f; --moss-soft: #232c1e; --gold: #e0bd6a; --gold-soft: #312a19;
+    --bg: #0e0f12;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: var(--bg); }
+  body { font-family: "Noto Sans TC", system-ui, sans-serif; color: var(--ink); }
+  .jp, [lang="ja"] { font-family: "Noto Sans JP", "Noto Sans TC", sans-serif; }
+
+  /* 1600×900 舞台，依視窗等比縮放 */
+  #viewport { position: fixed; inset: 0; overflow: hidden; }
+  #stage { width: 1600px; height: 900px; position: absolute; left: 50%; top: 50%; transform-origin: center center; }
+  .slide {
+    position: absolute; inset: 0; background: var(--paper); border-radius: 6px; overflow: hidden;
+    padding: 80px 110px 90px; display: none; flex-direction: column;
+  }
+  .slide.active { display: flex; animation: in .35s ease; }
+  @keyframes in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  /* 共用 */
+  .kicker { font-size: 24px; font-weight: 700; color: var(--seal); letter-spacing: .1em; margin-bottom: 10px; }
+  h2 { font-family: "Shippori Mincho", serif; font-weight: 800; font-size: 64px; line-height: 1.2; margin: 0 0 12px; }
+  h2 .ja { display: block; font-size: 30px; color: var(--muted); font-weight: 500; font-family: "Noto Sans JP"; margin-top: 8px; }
+  .sub { font-size: 28px; color: var(--muted); margin: 0 0 36px; line-height: 1.6; }
+  .body { flex: 1; display: flex; flex-direction: column; justify-content: center; min-height: 0; }
+  .row { display: grid; gap: 28px; }
+  .c2 { grid-template-columns: 1fr 1fr; }
+  .c3 { grid-template-columns: repeat(3, 1fr); }
+  .c4 { grid-template-columns: repeat(4, 1fr); }
+  .box { background: var(--paper-2); border: 2px solid var(--border); border-radius: 18px; padding: 30px 34px; }
+  .box h3 { font-size: 32px; margin: 0 0 12px; }
+  .box p { font-size: 25px; line-height: 1.6; margin: 0; }
+  .box .jp-sm { font-size: 22px; color: var(--muted); margin-top: 10px; }
+  .pill { display: inline-block; font-size: 22px; font-weight: 700; padding: 4px 16px; border-radius: 999px; background: var(--indigo-soft); color: var(--indigo); margin-bottom: 14px; }
+  .big-jp { font-size: 54px; font-weight: 700; line-height: 1.4; }
+  .muted { color: var(--muted); }
+  .seal { color: var(--seal); }
+  .blank { border-bottom: 3px dashed var(--seal); color: var(--seal); padding: 0 6px; }
+
+  /* 頁腳 */
+  .foot { position: absolute; left: 110px; right: 110px; bottom: 34px; display: flex; justify-content: space-between; font-size: 18px; color: var(--muted); }
+
+  /* 例句列 */
+  .lines { display: grid; gap: 18px; }
+  .line { display: flex; gap: 20px; align-items: center; background: var(--paper-2); border: 2px solid var(--border); border-radius: 16px; padding: 20px 28px; }
+  .line .jp { font-size: 34px; font-weight: 500; line-height: 1.45; }
+  .line .zh { font-size: 22px; color: var(--muted); margin-top: 4px; }
+  .line .tip { font-size: 20px; color: var(--moss); margin-top: 4px; }
+  .say {
+    flex: none; width: 56px; height: 56px; border-radius: 999px; border: 2px solid var(--indigo-line);
+    background: var(--indigo-soft); color: var(--indigo); font-size: 22px; cursor: pointer; display: grid; place-items: center; padding: 0;
+  }
+  .say:hover { background: var(--indigo); color: var(--paper); }
+  .say.on { background: var(--seal); border-color: var(--seal); color: #fff; }
+
+  /* 公式 */
+  .formula-no { font-family: "Shippori Mincho", serif; font-size: 200px; font-weight: 800; color: var(--seal); line-height: .9; }
+  .pattern { font-size: 52px; font-weight: 700; background: var(--paper-2); border: 3px solid var(--seal); border-radius: 18px; padding: 20px 34px; display: inline-block; }
+  .src { display: inline-block; font-size: 22px; font-weight: 700; color: var(--paper); background: var(--indigo); border-radius: 8px; padding: 2px 12px; margin-right: 6px; }
+
+  /* 表格 */
+  table { border-collapse: collapse; width: 100%; font-size: 26px; background: var(--paper-2); border-radius: 16px; overflow: hidden; }
+  th, td { text-align: left; padding: 14px 22px; border-bottom: 2px solid var(--border); }
+  th { font-size: 20px; color: var(--muted); font-weight: 500; }
+  tr:last-child td { border-bottom: 0; }
+  td .rd { display: block; font-size: 18px; color: var(--muted); }
+  .pct { color: var(--seal); font-weight: 800; font-size: 34px; text-align: right; }
+
+  /* オノマトペ */
+  .ono { background: var(--paper-2); border: 2px solid var(--border); border-radius: 16px; padding: 22px 26px; }
+  .ono .w { font-size: 44px; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+  .ono .m { font-size: 22px; color: var(--muted); margin: 4px 0 8px; }
+  .ono .e { font-size: 24px; }
+
+  /* 時間軸 */
+  .phases { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+  .phase { background: var(--paper-2); border: 2px solid var(--border); border-top: 8px solid var(--indigo); border-radius: 16px; padding: 24px 26px; }
+  .phase .n { font-size: 22px; color: var(--seal); font-weight: 700; }
+  .phase h3 { font-size: 32px; margin: 6px 0 12px; }
+  .phase ul { margin: 0; padding-left: 1.1em; font-size: 22px; line-height: 1.7; color: var(--muted); }
+  .phase.now { border-top-color: var(--seal); box-shadow: 0 0 0 4px var(--seal-soft); }
+
+  /* 封面 */
+  .cover { background: var(--indigo); color: #f6f4ec; justify-content: center; }
+  .cover h1 { font-family: "Shippori Mincho", serif; font-size: 140px; font-weight: 800; margin: 0; line-height: 1.1; }
+  .cover .ja { font-size: 40px; opacity: .85; margin-top: 20px; }
+  .cover .meta { font-size: 28px; opacity: .7; margin-top: 60px; }
+  .cover .stamp { position: absolute; right: 120px; top: 110px; width: 170px; height: 170px; border: 6px solid #e0968c; color: #e0968c; border-radius: 16px; display: grid; place-items: center; font-family: "Shippori Mincho"; font-size: 54px; font-weight: 800; line-height: 1.05; text-align: center; transform: rotate(6deg); }
+  .divider { background: var(--seal); color: #fbf3f1; justify-content: center; }
+  .divider .no { font-family: "Shippori Mincho"; font-size: 160px; font-weight: 800; opacity: .45; line-height: 1; }
+  .divider h2 { font-size: 96px; color: #fff; }
+  .divider h2 .ja { color: rgba(255,255,255,.8); font-size: 40px; }
+  .divider .wk { font-size: 30px; opacity: .85; margin-top: 18px; }
+
+  /* 任務卡 */
+  .role { background: var(--paper-2); border: 2px solid var(--border); border-top: 8px solid var(--seal); border-radius: 16px; padding: 22px 26px; }
+  .role .i { font-size: 48px; }
+  .role .n { font-size: 30px; font-weight: 700; margin: 6px 0 2px; }
+  .role .z { font-size: 20px; color: var(--muted); margin-bottom: 10px; }
+  .role .q { font-size: 23px; display: flex; gap: 12px; align-items: center; }
+  .role .q .say { width: 44px; height: 44px; font-size: 18px; }
+
+  .note { background: var(--gold-soft); border-radius: 16px; padding: 22px 30px; font-size: 26px; line-height: 1.6; margin-top: 26px; }
+  .note b { color: var(--gold); }
+
+  /* 控制列 */
+  #bar { position: fixed; left: 0; right: 0; bottom: 0; height: 4px; background: rgba(255,255,255,.08); z-index: 5; }
+  #bar i { display: block; height: 100%; background: #e0968c; width: 0; transition: width .3s; }
+  #ctrl {
+    position: fixed; right: 16px; bottom: 14px; z-index: 6; display: flex; gap: 6px; align-items: center;
+    background: rgba(20,22,26,.78); color: #eee; border-radius: 999px; padding: 6px 8px; font-size: 14px;
+    opacity: .2; transition: opacity .2s; backdrop-filter: blur(6px);
+  }
+  #ctrl:hover, #ctrl:focus-within { opacity: 1; }
+  #ctrl button, #ctrl a { background: transparent; border: 0; color: inherit; font: inherit; cursor: pointer; padding: 6px 10px; border-radius: 999px; text-decoration: none; }
+  #ctrl button:hover, #ctrl a:hover { background: rgba(255,255,255,.14); }
+  #count { min-width: 64px; text-align: center; font-variant-numeric: tabular-nums; }
+
+  /* 目錄 */
+  #toc { position: fixed; inset: 0; z-index: 10; background: rgba(10,11,14,.92); display: none; overflow: auto; padding: 40px 16px; }
+  #toc.open { display: block; }
+  #toc .inner { max-width: 1000px; margin: 0 auto; }
+  #toc h3 { color: #fff; font-family: "Shippori Mincho"; font-size: 28px; margin: 0 0 20px; display: flex; justify-content: space-between; }
+  #toc h3 button { background: none; border: 1px solid #555; color: #ddd; border-radius: 8px; cursor: pointer; font-size: 14px; padding: 4px 12px; }
+  #toc ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); gap: 8px; }
+  #toc li button { width: 100%; text-align: left; background: #1f2228; border: 1px solid #333842; color: #ddd; border-radius: 10px; padding: 10px 14px; cursor: pointer; font: inherit; font-size: 15px; }
+  #toc li button:hover, #toc li button.cur { border-color: #e0968c; color: #fff; }
+  #toc li button span { color: #e0968c; margin-right: 8px; font-variant-numeric: tabular-nums; }
+  #toc .help { color: #999; font-size: 14px; margin-top: 24px; line-height: 1.8; }
+
+  @media print {
+    html, body { overflow: visible; height: auto; background: #fff; }
+    #viewport { position: static; display: block; }
+    #stage { transform: none !important; position: static; width: 1600px; height: auto; }
+    .slide { display: flex !important; position: relative; height: 900px; page-break-after: always; animation: none; border-radius: 0; }
+    #ctrl, #bar, #toc, .say { display: none !important; }
+    @page { size: 1600px 900px; margin: 0; }
+  }
+</style>
+</head>
+<body>
+<div id="viewport"><div id="stage">
+
+<!-- ===== 封面 ===== -->
+<section class="slide cover" data-title="封面">
+  <div class="stamp">観光<br>発信</div>
+  <div class="kicker" style="color:#e0968c">115-1 學期 ・ 進修部</div>
+  <h1>旅遊產業日語</h1>
+  <div class="ja jp" lang="ja">台湾の「当たり前」を日本語で伝える</div>
+  <div class="meta">← → 翻頁　・　F 全螢幕　・　O 目錄　・　▶ 聽發音</div>
+</section>
+
+<!-- ===== 課程目標 ===== -->
+<section class="slide" data-title="三項核心能力">
+  <div class="kicker">COURSE GOALS</div>
+  <h2>這學期，你會帶走三種能力</h2>
+  <div class="body"><div class="row c3">
+    <div class="box"><span class="pill">① 魅力發信</span><h3>換句話說＋視覺輔助</h3><p>不再死背單字，用日語自信介紹台灣魅力。</p><p class="jp-sm jp" lang="ja">言い換えと視覚資料で、台湾の魅力を伝える。</p></div>
+    <div class="box"><span class="pill">② 換位思考</span><h3>站在觀光客的角度</h3><p>透過台日比較，重新發現台灣讓外國人好奇的地方。</p><p class="jp-sm jp" lang="ja">観光客の視点で、台湾を再発見する。</p></div>
+    <div class="box"><span class="pill">③ 即時應變</span><h3>卡住也不沉默</h3><p>遇到不會的單字，也能用技巧讓溝通繼續。</p><p class="jp-sm jp" lang="ja">言葉に詰まっても、会話を続ける。</p></div>
+  </div></div>
+</section>
+
+<!-- ===== 學期地圖 ===== -->
+<section class="slide" data-title="學期地圖">
+  <div class="kicker">ROADMAP</div>
+  <h2>18 週・四個階段</h2>
+  <div class="body"><div class="phases" id="phases">
+    <div class="phase" data-from="1" data-to="3"><div class="n">W1–W3</div><h3>建立武器庫</h3><ul><li>異文化破冰</li><li>言い換え公式</li><li>オノマトペ</li></ul></div>
+    <div class="phase" data-from="4" data-to="9"><div class="n">W4–W9</div><h3>需求分析與 Podcast</h3><ul><li>四大文化模組</li><li>士林夜市踏查</li><li>Podcast 腳本・錄音</li><li><b class="seal">W9 期中繳交</b></li></ul></div>
+    <div class="phase" data-from="10" data-to="13"><div class="n">W10–W13</div><h3>視覺化與應變</h3><ul><li>專題講座</li><li>簡報設計</li><li>即興應答</li><li>聽眾任務卡</li></ul></div>
+    <div class="phase" data-from="14" data-to="18"><div class="n">W14–W18</div><h3>實境演練與發表</h3><ul><li>輪轉防禦戰</li><li>求生診斷室</li><li><b class="seal">W16–17 期末提案</b></li><li>總反思</li></ul></div>
+  </div></div>
+</section>
+
+<!-- ===== 期末任務 ===== -->
+<section class="slide" data-title="期末任務">
+  <div class="kicker">FINAL MISSION</div>
+  <h2>期末：雙北觀光景點提案<span class="ja" lang="ja">全部日本語でプレゼン＆質疑応答</span></h2>
+  <div class="body"><div class="row c3">
+    <div class="box"><h3>🎙️ 期中 W9</h3><p>3–5 分鐘日語導覽 Podcast<br><span class="muted">零 BGM・MP3</span></p></div>
+    <div class="box"><h3>🖼️ 期末 W16–17</h3><p>把 Podcast＋夜市照片做成 PPT，用全日語提案</p></div>
+    <div class="box"><h3>💬 真實 QA</h3><p>台下同學扮演日本觀光客提問，考驗你的應變力</p></div>
+  </div></div>
+</section>
+
+<!-- ===== 第一章：言い換え ===== -->
+<section class="slide divider" data-title="第一章｜言い換え">
+  <div class="no">01</div>
+  <h2>轉譯武器庫<span class="ja" lang="ja">言い換えの3つの型</span></h2>
+  <div class="wk">W2　想不起單字？不要停下來，繞過去！</div>
+</section>
+
+<section class="slide" data-title="什麼是言い換え">
+  <div class="kicker">WHAT IS 言い換え</div>
+  <h2>不會的單字，用會的單字說</h2>
+  <div class="body">
+    <div class="row c2" style="align-items:center">
+      <div class="box" style="text-align:center"><div class="muted" style="font-size:24px">想說的是…</div><div style="font-size:90px;font-weight:700">QQ</div><div class="muted" style="font-size:24px">❌ 查不到、背不起來</div></div>
+      <div class="box" style="text-align:center;border-color:var(--moss)"><div class="muted" style="font-size:24px">換句話說 →</div><div class="big-jp jp" lang="ja" style="font-size:46px">お餅みたいに<br>もちもちしています</div><div style="font-size:24px;color:var(--moss)">✅ 日本人秒懂</div></div>
+    </div>
+    <div class="note"><b>關鍵心態：</b>目標不是「翻譯正確」，而是「對方聽得懂」。用初級日語就做得到。</div>
+  </div>
+</section>
+
+<section class="slide" data-title="公式壱：上位概念＋特徵">
+  <div class="row" style="grid-template-columns:220px 1fr;align-items:start;gap:40px">
+    <div class="formula-no">壱</div>
+    <div><div class="kicker">上位概念＋特徵</div><div class="pattern jp" lang="ja">〇〇の一種で、△△です</div><p class="sub" style="margin-top:20px">先說它屬於哪一類，再補一個最大的特色。</p></div>
+  </div>
+  <div class="body"><div class="lines">
+    <div class="line"><button class="say" data-say="豆腐の一種で、においがとても強い料理です。">▶</button><div><div class="jp" lang="ja"><span class="src">臭豆腐</span>豆腐の一種で、においがとても強い料理です。</div></div></div>
+    <div class="line"><button class="say" data-say="ご飯の一種で、甘辛く煮た豚肉がのっています。">▶</button><div><div class="jp" lang="ja"><span class="src">滷肉飯</span>ご飯の一種で、甘辛く煮た豚肉がのっています。</div></div></div>
+  </div></div>
+</section>
+
+<section class="slide" data-title="公式弐：比喻・類比">
+  <div class="row" style="grid-template-columns:220px 1fr;align-items:start;gap:40px">
+    <div class="formula-no">弐</div>
+    <div><div class="kicker">比喻・類比</div><div class="pattern jp" lang="ja">〇〇みたいな／〇〇のような △△</div><p class="sub" style="margin-top:20px">拿日本人熟悉的東西來比，畫面感最強。</p></div>
+  </div>
+  <div class="body"><div class="lines">
+    <div class="line"><button class="say" data-say="お餅みたいな、もちもちした食感です。">▶</button><div><div class="jp" lang="ja"><span class="src">QQ</span>お餅みたいな、もちもちした食感です。</div></div></div>
+    <div class="line"><button class="say" data-say="毎晩やっているお祭りの屋台みたいな場所です。">▶</button><div><div class="jp" lang="ja"><span class="src">夜市</span>毎晩やっているお祭りの屋台みたいな場所です。</div></div></div>
+  </div></div>
+</section>
+
+<section class="slide" data-title="公式参：功能・目的">
+  <div class="row" style="grid-template-columns:220px 1fr;align-items:start;gap:40px">
+    <div class="formula-no">参</div>
+    <div><div class="kicker">功能・目的</div><div class="pattern jp" lang="ja">〇〇するための／〇〇する時に使う △△</div><p class="sub" style="margin-top:20px">說明「做什麼用的」，不知道名稱也能說清楚。</p></div>
+  </div>
+  <div class="body"><div class="lines">
+    <div class="line"><button class="say" data-say="バイクが左に曲がるために、待つ場所です。">▶</button><div><div class="jp" lang="ja"><span class="src">待轉區</span>バイクが左に曲がるために、待つ場所です。</div></div></div>
+    <div class="line"><button class="say" data-say="神様に、はいか、いいえを聞く時に使う道具です。">▶</button><div><div class="jp" lang="ja"><span class="src">筊杯</span>神様に「はい」か「いいえ」を聞く時に使う道具です。</div></div></div>
+  </div></div>
+</section>
+
+<section class="slide" data-title="練習：Taboo 禁語猜謎">
+  <div class="kicker">PRACTICE</div>
+  <h2>Taboo 禁語猜謎<span class="ja" lang="ja">キーワードを言わずに説明しよう</span></h2>
+  <div class="body">
+    <div class="row c4" style="text-align:center">
+      <div class="box"><div style="font-size:64px">🧋</div><h3>珍珠奶茶</h3><p class="muted">禁：タピオカ</p></div>
+      <div class="box"><div style="font-size:64px">🏪</div><h3>超商</h3><p class="muted">禁：コンビニ</p></div>
+      <div class="box"><div style="font-size:64px">🛵</div><h3>機車</h3><p class="muted">禁：バイク</p></div>
+      <div class="box"><div style="font-size:64px">🧧</div><h3>紅包</h3><p class="muted">禁：お年玉</p></div>
+    </div>
+    <div class="note"><b>規則：</b>抽一張卡，用公式壱・弐・参其中一個，30 秒內讓組員猜出來。說出禁語就換下一組！</div>
+  </div>
+</section>
+
+<!-- ===== 第二章：オノマトペ ===== -->
+<section class="slide divider" data-title="第二章｜オノマトペ">
+  <div class="no">02</div>
+  <h2>擬聲擬態語<span class="ja" lang="ja">オノマトペで「画面」を伝える</span></h2>
+  <div class="wk">W2　一個詞，就能讓日本人「看見」畫面</div>
+</section>
+
+<section class="slide" data-title="オノマトペ：口感">
+  <div class="kicker">食感のオノマトペ</div>
+  <h2>口感</h2>
+  <div class="body"><div class="row c3" id="ono-texture"></div></div>
+</section>
+
+<section class="slide" data-title="オノマトペ：聲音・氣氛">
+  <div class="kicker">音・雰囲気のオノマトペ</div>
+  <h2>聲音・氣氛</h2>
+  <div class="body"><div class="row c3" id="ono-sound"></div></div>
+</section>
+
+<!-- ===== 第三章：四大模組 ===== -->
+<section class="slide divider" data-title="第三章｜四大文化模組">
+  <div class="no">03</div>
+  <h2>四大文化發信模組<span class="ja" lang="ja">4つの文化発信モジュール</span></h2>
+  <div class="wk">W4　每組選一個模組，作為整學期的主軸</div>
+</section>
+
+<section class="slide" data-title="四大模組總覽">
+  <div class="kicker">MODULES</div>
+  <h2>選一個你們組最想說的台灣</h2>
+  <div class="body"><div class="row c2">
+    <div class="box"><span class="pill">A</span><h3>🛵 街頭生存與移動潛規則</h3><p class="muted">機車瀑布・招手搭公車・捷運禁食・騎樓</p></div>
+    <div class="box"><span class="pill">B</span><h3>🧋 庶民胃袋與點餐</h3><p class="muted">手搖飲甜度冰塊・早餐店畫單・熱炒・市場殺價</p></div>
+    <div class="box"><span class="pill">C</span><h3>🏪 台灣時間感與生活節奏</h3><p class="muted">追垃圾車・超商萬能・24H 洗衣店</p></div>
+    <div class="box"><span class="pill">D</span><h3>🏮 信仰與日常</h3><p class="muted">擲筊・求籤・統一發票對獎與捐贈</p></div>
+  </div></div>
+</section>
+
+<div id="module-slides"></div>
+
+<!-- ===== 第四章：踏查 ===== -->
+<section class="slide divider" data-title="第四章｜士林夜市踏查">
+  <div class="no">04</div>
+  <h2>士林夜市踏查<span class="ja" lang="ja">観光客の目でフィールドワーク</span></h2>
+  <div class="wk">W5　移地教學：拍下三種照片，群組打卡</div>
+</section>
+
+<section class="slide" data-title="三種照片">
+  <div class="kicker">PHOTO MISSION</div>
+  <h2>用日本觀光客的眼睛走一圈</h2>
+  <div class="body"><div class="row c3">
+    <div class="box"><h3>🔍 找不同</h3><p>日本沒有、或做法完全不同的東西</p><p class="jp-sm jp" lang="ja">日本ではあまり見かけないと思いますが…</p></div>
+    <div class="box"><h3>❓ 找疑問</h3><p>日本人會「咦？這是什麼？」的地方</p><p class="jp-sm jp" lang="ja">「これは何だろう？」と思いますよね。実は…</p></div>
+    <div class="box"><h3>🛡️ 找安心</h3><p>化解不安：衛生、價格、安全、付款</p><p class="jp-sm jp" lang="ja">安心してください。〜ので、大丈夫ですよ。</p></div>
+  </div></div>
+</section>
+
+<section class="slide" data-title="同理心地圖">
+  <div class="kicker">EMPATHY MAP</div>
+  <h2>日本觀光客在想什麼？</h2>
+  <div class="body"><table>
+    <thead><tr><th>面向</th><th>引導問題</th><th>夜市裡的例子</th></tr></thead>
+    <tbody>
+      <tr><td>👀 看到 <span class="rd jp" lang="ja">見ている</span></td><td>第一眼看到什麼？</td><td>人潮、看不懂的招牌、滿地機車</td></tr>
+      <tr><td>👂 聽到 <span class="rd jp" lang="ja">聞いている</span></td><td>耳邊是什麼聲音？</td><td>叫賣聲、鐵板ジュージュー</td></tr>
+      <tr><td>😨 害怕 <span class="rd jp" lang="ja">不安</span></td><td>什麼讓他不敢嘗試？</td><td>不能刷卡？衛生？怎麼點？</td></tr>
+      <tr><td>✨ 好奇 <span class="rd jp" lang="ja">好奇心</span></td><td>什麼讓他想拍照、想問？</td><td>臭豆腐的味道、射氣球</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ===== 第五章：Podcast ===== -->
+<section class="slide divider" data-title="第五章｜Podcast">
+  <div class="no">05</div>
+  <h2>觀光導覽 Podcast<span class="ja" lang="ja">観光案内ポッドキャスト</span></h2>
+  <div class="wk">W6 腳本　→　W8 錄音　→　W9 繳交（3–5 分鐘・零 BGM・MP3）</div>
+</section>
+
+<section class="slide" data-title="Podcast 四段結構">
+  <div class="kicker">STRUCTURE</div>
+  <h2>四段結構，照著寫就完成</h2>
+  <div class="body"><div class="row c4">
+    <div class="box"><span class="pill">① 30 秒</span><h3>開場</h3><p class="jp" lang="ja" style="font-size:22px">オープニング</p></div>
+    <div class="box"><span class="pill">② 1 分</span><h3>🔍 找不同</h3><p class="jp" lang="ja" style="font-size:22px">違いを探す</p></div>
+    <div class="box"><span class="pill">③ 1–2 分</span><h3>❓ 解疑問</h3><p class="jp" lang="ja" style="font-size:22px">疑問を解く<br>＋言い換え＋オノマトペ</p></div>
+    <div class="box"><span class="pill">④ 1 分</span><h3>🛡️ 給安心＋結尾</h3><p class="jp" lang="ja" style="font-size:22px">安心ポイント</p></div>
+  </div></div>
+</section>
+
+<section class="slide" data-title="腳本模板（前半）">
+  <div class="kicker">SCRIPT TEMPLATE 1/2</div>
+  <h2>腳本模板：開場與找不同</h2>
+  <div class="body"><div class="lines" data-script="0,1"></div></div>
+</section>
+
+<section class="slide" data-title="腳本模板（後半）">
+  <div class="kicker">SCRIPT TEMPLATE 2/2</div>
+  <h2>腳本模板：解疑問與給安心</h2>
+  <div class="body"><div class="lines" data-script="2,3"></div></div>
+</section>
+
+<section class="slide" data-title="轉譯歷程對照表">
+  <div class="kicker">TRANSLATION LOG</div>
+  <h2>轉譯歷程對照表<span class="ja" lang="ja">卡關的單字，最後怎麼繞過去？</span></h2>
+  <div class="body"><table>
+    <thead><tr><th>卡關的中文</th><th>第一次想到</th><th>最後採用的日語</th><th>策略</th></tr></thead>
+    <tbody>
+      <tr><td>QQ</td><td class="jp" lang="ja">（わからない…）</td><td class="jp" lang="ja">お餅みたいに、もちもちしています</td><td>弐＋オノマトペ</td></tr>
+      <tr><td>騎樓</td><td class="jp" lang="ja">きろう？</td><td class="jp" lang="ja">屋根がある歩道で、雨でも濡れません</td><td>参</td></tr>
+      <tr><td>統一發票</td><td class="jp" lang="ja">レシート</td><td class="jp" lang="ja">宝くじにもなるレシートです</td><td>壱</td></tr>
+      <tr><td class="muted">你的例子</td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="slide" data-title="錄音小叮嚀">
+  <div class="kicker">RECORDING TIPS ・ W8</div>
+  <h2>錄音前的四個檢查</h2>
+  <div class="body"><div class="row c2">
+    <div class="box"><h3>① 句尾放慢</h3><p>日語重點常在句尾，不要吞掉「〜です」「〜ます」。</p></div>
+    <div class="box"><h3>② 增加對話感</h3><p>多用 <span class="jp" lang="ja">「〜んです」「〜ですよね」</span>，聽起來像在聊天。</p></div>
+    <div class="box"><h3>③ 不看稿 70%</h3><p>練到大部分可以不看稿，語調才會自然。</p></div>
+    <div class="box"><h3>④ 安靜＋一個拳頭</h3><p>找安靜角落，手機離嘴巴約一個拳頭距離。零 BGM！</p></div>
+  </div></div>
+</section>
+
+<!-- ===== 第六章：簡報 ===== -->
+<section class="slide divider" data-title="第六章｜簡報發表">
+  <div class="no">06</div>
+  <h2>期末提案簡報<span class="ja" lang="ja">プレゼンの決まり文句</span></h2>
+  <div class="wk">W11　把微觀文化，放進雙北景點裡</div>
+</section>
+
+<section class="slide" data-title="簡報句型：開場與架構">
+  <div class="kicker">PRESENTATION 1/2</div>
+  <h2>開場與架構</h2>
+  <div class="body"><div class="lines" data-phr="pres1"></div></div>
+</section>
+
+<section class="slide" data-title="簡報句型：視覺與結尾">
+  <div class="kicker">PRESENTATION 2/2</div>
+  <h2>帶入視覺與結尾</h2>
+  <div class="body"><div class="lines" data-phr="pres2"></div></div>
+</section>
+
+<section class="slide" data-title="隱藏預備頁面">
+  <div class="kicker">SECRET WEAPON ・ W13</div>
+  <h2>隱藏預備頁面</h2>
+  <div class="body">
+    <p class="sub">在最後一頁之後，偷偷準備 2–3 張「可能被問到」的補充頁。</p>
+    <div class="row c4" style="text-align:center">
+      <div class="box"><div style="font-size:56px">💴</div><h3>價格表</h3></div>
+      <div class="box"><div style="font-size:56px">🚇</div><h3>交通路線</h3></div>
+      <div class="box"><div style="font-size:56px">🗺️</div><h3>地圖</h3></div>
+      <div class="box"><div style="font-size:56px">📷</div><h3>比較照片</h3></div>
+    </div>
+    <div class="lines" style="margin-top:28px"><div class="line"><button class="say" data-say="実は、こちらに資料を用意しました。">▶</button><div><div class="jp" lang="ja">実は、こちらに資料を用意しました。</div><div class="zh">其實，我們在這裡準備了資料。（被問倒時，化危機為轉機！）</div></div></div></div>
+  </div>
+</section>
+
+<!-- ===== 第七章：QA ===== -->
+<section class="slide divider" data-title="第七章｜QA 應變">
+  <div class="no">07</div>
+  <h2>QA 應變工具箱<span class="ja" lang="ja">質疑応答サバイバル</span></h2>
+  <div class="wk">W12–W17　被問倒不可怕，沉默才可怕</div>
+</section>
+
+<section class="slide" data-title="拖延神句">
+  <div class="kicker">STEP 1 ・ 先爭取 3 秒</div>
+  <h2>拖延神句<span class="ja" lang="ja">W15 規則：回答前一定要先說一句！</span></h2>
+  <div class="body"><div class="lines" data-phr="stall"></div></div>
+</section>
+
+<section class="slide" data-title="確認句">
+  <div class="kicker">STEP 2 ・ 聽不懂就確認</div>
+  <h2>確認句</h2>
+  <div class="body"><div class="lines" data-phr="confirm"></div></div>
+</section>
+
+<section class="slide" data-title="換句話說回答">
+  <div class="kicker">STEP 3 ・ 用言い換え回答</div>
+  <h2>想不起單字時</h2>
+  <div class="body"><div class="lines" data-phr="paraphrase"></div></div>
+</section>
+
+<section class="slide" data-title="聽眾發問句型">
+  <div class="kicker">FOR THE AUDIENCE</div>
+  <h2>當你是觀光客：發問句型</h2>
+  <div class="body"><div class="lines" data-phr="ask"></div></div>
+</section>
+
+<section class="slide" data-title="聽眾任務卡">
+  <div class="kicker">ROLE CARDS ・ W13 / W16–17</div>
+  <h2>聽眾任務卡：抽一張，扮演他！</h2>
+  <div class="body"><div class="row c3" id="roles"></div></div>
+</section>
+
+<!-- ===== 評分 ===== -->
+<section class="slide" data-title="評分：期中 Podcast">
+  <div class="kicker">RUBRIC ・ W9</div>
+  <h2>期中 Podcast 評分</h2>
+  <div class="body"><table>
+    <tbody>
+      <tr><td><b>文化痛點精準度</b></td><td>是否打中日本觀光客真正的疑問或不安？</td><td class="pct">35%</td></tr>
+      <tr><td><b>轉譯策略力</b></td><td>靈活運用言い換え與オノマトペ</td><td class="pct">35%</td></tr>
+      <tr><td><b>語音表達</b></td><td>語速、清晰、自然的對話感</td><td class="pct">20%</td></tr>
+      <tr><td><b>格式</b></td><td>3–5 分鐘・零 BGM・MP3・準時</td><td class="pct">10%</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="slide" data-title="評分：期末提案">
+  <div class="kicker">RUBRIC ・ W16–17</div>
+  <h2>期末提案與 QA 評分</h2>
+  <div class="body"><table>
+    <tbody>
+      <tr><td><b>內容與觀光客視角</b></td><td>景點與文化模組的連結、對日本客的吸引力</td><td class="pct">25%</td></tr>
+      <tr><td><b>視覺化</b></td><td>照片圖示輔助說明；有隱藏預備頁</td><td class="pct">20%</td></tr>
+      <tr><td><b>日語發信力</b></td><td>全日文、結構清楚、善用言い換え</td><td class="pct">25%</td></tr>
+      <tr><td><b>QA 應變</b></td><td>拖延神句、確認句、言い換え接住問題</td><td class="pct">30%</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ===== 結尾 ===== -->
+<section class="slide cover" data-title="結尾">
+  <div class="kicker" style="color:#e0968c">あなたも、台湾の観光大使！</div>
+  <h1 class="jp" lang="ja" style="font-size:110px">ご清聴<br>ありがとうございました</h1>
+  <div class="meta">課程網站：aaronlin0806.github.io/travel-japanese-course</div>
+</section>
+
+</div></div>
+
+<div id="bar"><i></i></div>
+<div id="ctrl">
+  <button id="prev" aria-label="上一頁">←</button>
+  <span id="count">1 / 1</span>
+  <button id="next" aria-label="下一頁">→</button>
+  <button id="tocBtn" aria-label="目錄">☰</button>
+  <button id="fsBtn" aria-label="全螢幕">⛶</button>
+  <button id="themeBtn" aria-label="切換深淺色">◐</button>
+  <a href="./" aria-label="回課程網站">網站</a>
+</div>
+<div id="toc" role="dialog" aria-label="投影片目錄"><div class="inner">
+  <h3>目錄 <button id="tocClose">關閉 Esc</button></h3>
+  <ol id="tocList"></ol>
+  <div class="help">← → / 空白鍵 / PageUp PageDown：翻頁　・　Home / End：第一頁／最後一頁　・　F：全螢幕　・　O：目錄　・　手機可左右滑動<br>列印：瀏覽器「列印」→ 另存為 PDF，每頁一張投影片。</div>
+</div></div>
+
+<script>
+/* ---------- 資料 ---------- */
+const ONO = {
+  'ono-texture': [
+    ['もちもち', 'QQ、有嚼勁', 'タピオカはもちもちしています。'],
+    ['ぷるぷる', '軟嫩 Q 彈', '豆花はぷるぷるです。'],
+    ['サクサク', '酥脆（輕）', 'フライドチキンはサクサク！'],
+    ['カリカリ', '脆硬、焦脆', '外はカリカリです。'],
+    ['ふわふわ', '鬆軟、蓬鬆', 'ふわふわのかき氷です。'],
+    ['とろとろ', '濃稠、入口即化', 'とろとろの角煮です。'],
+  ],
+  'ono-sound': [
+    ['ジュージュー', '鐵板滋滋作響', 'ステーキがジュージュー！'],
+    ['ブンブン', '機車轟轟聲', 'バイクがブンブン走ります。'],
+    ['ガヤガヤ', '人聲鼎沸', '夜市はガヤガヤしています。'],
+    ['ワイワイ', '熱鬧開心', 'みんなでワイワイ飲みます。'],
+    ['ぎゅうぎゅう', '擠得滿滿', '週末は人でぎゅうぎゅうです。'],
+    ['プンプン', '氣味陣陣飄來', '臭豆腐のにおいがプンプン！'],
+  ],
+};
+const MODULES = [
+  { key: 'A', icon: '🛵', name: '街頭生存與移動潛規則', ja: '街歩きと移動の暗黙ルール',
+    vocab: [['機車瀑布','バイクの滝','ばいくのたき'],['兩段式左轉','二段階左折','にだんかいさせつ'],['待轉區','待機エリア','たいきえりあ'],['騎樓','屋根付きの歩道','やねつきのほどう'],['博愛座','優先席','ゆうせんせき'],['悠遊卡','悠遊カード（ICカード）','ゆうゆうかーど']],
+    phrases: [
+      { ja: '台湾では、バスに乗りたい時は手を挙げてください。', zh: '在台灣想搭公車要招手。', tip: '找安心：不招手公車不會停！' },
+      { ja: 'MRTの中では、水やガムもだめです。罰金があります。', zh: '捷運上連喝水、口香糖都不行，會被罰款。' },
+      { ja: '信号が青になると、バイクが滝みたいにブンブン出てきます。', zh: '綠燈一亮，機車像瀑布一樣衝出來。', tip: '公式弐＋オノマトペ' },
+    ]},
+  { key: 'B', icon: '🧋', name: '庶民胃袋與點餐', ja: '庶民のグルメと注文術',
+    vocab: [['甜度','甘さ','あまさ'],['半糖','甘さ半分','あまさはんぶん'],['去冰','氷なし','こおりなし'],['加料','トッピング',''],['內用／外帶','店内／持ち帰り','てんない／もちかえり'],['殺價','値切る','ねぎる']],
+    phrases: [
+      { ja: 'ドリンクは、甘さと氷の量を自分で選べます。', zh: '飲料可以自己選甜度和冰塊。', tip: '找不同' },
+      { ja: '朝ごはん屋さんでは、注文用紙に自分で書きます。', zh: '早餐店要自己寫點餐單。' },
+      { ja: 'おばさんが「イケメン！」と呼びますが、台湾流のあいさつです。', zh: '阿姨叫你「帥哥！」是台灣式的打招呼。', tip: '找疑問→找安心' },
+    ]},
+  { key: 'C', icon: '🏪', name: '台灣時間感與生活節奏', ja: '台湾の暮らしのリズム',
+    vocab: [['垃圾車','ゴミ収集車','ごみしゅうしゅうしゃ'],['〈給愛麗絲〉','エリーゼのために','えりーぜのために'],['便利商店','コンビニ',''],['茶葉蛋','茶葉卵','ちゃばたまご'],['繳費','料金の支払い','りょうきんのしはらい'],['自助洗衣店','コインランドリー','']],
+    phrases: [
+      { ja: '「エリーゼのために」が聞こえたら、ゴミ収集車が来た合図です。', zh: '聽到〈給愛麗絲〉就是垃圾車來了。', tip: '找疑問' },
+      { ja: 'コンビニでは、電気代を払ったり、チケットを買ったりできます。', zh: '超商可以繳電費、買票。' },
+      { ja: '入口の独特なにおいは茶葉卵です。お茶で煮た卵ですよ。', zh: '入口那股味道是茶葉蛋，用茶煮的蛋。', tip: '公式壱＋参' },
+    ]},
+  { key: 'D', icon: '🏮', name: '信仰與日常', ja: '信仰と日常の価値観',
+    vocab: [['拜拜','お参り','おまいり'],['香','線香','せんこう'],['擲筊','ポエ占い','ぽえうらない'],['求籤','おみくじを引く','おみくじをひく'],['月老','縁結びの神様','えんむすびのかみさま'],['統一發票','宝くじ付きレシート','たからくじつきれしーと']],
+    phrases: [
+      { ja: '赤い三日月みたいな道具を二つ投げて、神様に質問します。', zh: '擲出兩個像紅色新月的道具，向神明提問。', tip: '公式弐' },
+      { ja: '日本のおみくじと違って、引く前に神様の許可が必要なんです。', zh: '和日本不同，抽籤前要先得到神明允許。', tip: '找不同' },
+      { ja: '台湾のレシートは宝くじにもなっていて、最高で1000万元当たります。', zh: '台灣發票也是彩券，最高可中 1000 萬元。' },
+    ]},
+];
+const SCRIPT = [
+  ['① オープニング', ['みなさん、こんにちは。「＿＿＿」の時間です。', '台湾から、＿＿＿と＿＿＿がお届けします。', '今日のテーマは「＿＿＿」です。']],
+  ['② 違いを探す', ['日本ではあまり見かけないと思いますが、台湾では＿＿＿。', '初めて見た日本人は、きっとびっくりすると思います。']],
+  ['③ 疑問を解く', ['「これは何だろう？」と思いますよね。実は、＿＿＿の一種で、＿＿＿です。', '例えるなら、日本の＿＿＿みたいな感じです。']],
+  ['④ 安心＋エンディング', ['でも、安心してください。＿＿＿ので、大丈夫ですよ。', '台湾に来たら、ぜひ一度＿＿＿してみてください。以上、＿＿＿でした！']],
+];
+const PHR = {
+  pres1: [
+    { ja: 'みなさん、こんにちは。第＿グループです。', zh: '大家好，我們是第＿組。' },
+    { ja: '今日は、台北の〇〇をご紹介します。', zh: '今天要介紹台北的〇〇。' },
+    { ja: 'まず、〇〇について説明します。', zh: '首先，說明〇〇。' },
+    { ja: '次に、〇〇を見てみましょう。最後に、おすすめポイントをお伝えします。', zh: '接著看看〇〇。最後告訴大家推薦重點。' },
+  ],
+  pres2: [
+    { ja: 'こちらの写真をご覧ください。', zh: '請看這張照片。' },
+    { ja: '言葉で説明するより、見たほうがわかりやすいと思います。', zh: '比起用說的，看圖更容易懂。', tip: '視覺輔助也是一種溝通策略' },
+    { ja: 'これで発表を終わります。ご清聴ありがとうございました。', zh: '報告到此結束，謝謝聆聽。' },
+    { ja: '何かご質問はありますか。', zh: '有什麼問題嗎？' },
+  ],
+  stall: [
+    { ja: 'いい質問ですね。', zh: '好問題呢。', tip: '萬用第一句，也讓提問者感覺被重視' },
+    { ja: 'そうですね……。', zh: '這個嘛……' },
+    { ja: '少し考えさせてください。', zh: '請讓我想一下。' },
+    { ja: 'チームで少し相談してもいいですか。', zh: '可以和組員商量一下嗎？' },
+  ],
+  confirm: [
+    { ja: 'すみません、もう一度お願いできますか。', zh: '不好意思，可以再說一次嗎？' },
+    { ja: 'もう少しゆっくり話していただけますか。', zh: '可以說慢一點嗎？' },
+    { ja: '〇〇というのは、△△という意味ですか。', zh: '您說的〇〇，是△△的意思嗎？' },
+    { ja: 'つまり、〇〇ということでしょうか。', zh: '也就是說，是〇〇的意思嗎？' },
+  ],
+  paraphrase: [
+    { ja: '日本語でうまく言えないんですが……。', zh: '用日語不太會說……', tip: '先坦白，對方會更有耐心' },
+    { ja: 'なんというか、〇〇みたいな感じです。', zh: '該怎麼說呢，有點像〇〇的感覺。' },
+    { ja: '写真で見せたほうがわかりやすいと思います。', zh: '用照片給您看比較清楚。' },
+    { ja: '伝わりましたか。', zh: '這樣有傳達到嗎？' },
+  ],
+  ask: [
+    { ja: '〇〇はどうして△△んですか。', zh: '〇〇為什麼會△△呢？' },
+    { ja: '日本人でも〇〇できますか。', zh: '日本人也能〇〇嗎？' },
+    { ja: 'いくらぐらいかかりますか。', zh: '大概要花多少錢？' },
+    { ja: '一番のおすすめは何ですか。', zh: '最推薦的是什麼？' },
+  ],
+};
+const ROLES = [
+  ['😰','心配性な人','擔心安全衛生','衛生面は大丈夫ですか。'],
+  ['🍜','食いしん坊','只在乎好不好吃','一番おいしいものは何ですか。'],
+  ['💰','節約派の大学生','預算很少','1000元でどれぐらい楽しめますか。'],
+  ['👨‍👩‍👧','子連れの家族','帶小孩','ベビーカーでも行けますか。'],
+  ['📸','インスタ好き','只想拍美照','一番映えるスポットはどこですか。'],
+  ['🧓','初めての海外旅行','不會中文的長輩','中国語が話せなくても大丈夫ですか。'],
+];
+
+/* ---------- 產生投影片 ---------- */
+const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const say = t => `<button class="say" data-say="${esc(t)}" aria-label="播放發音">▶</button>`;
+const lineHTML = p => `<div class="line">${say(p.ja)}<div><div class="jp" lang="ja">${esc(p.ja)}</div>${p.zh ? `<div class="zh">${esc(p.zh)}</div>` : ''}${p.tip ? `<div class="tip">💡 ${esc(p.tip)}</div>` : ''}</div></div>`;
+
+for (const id in ONO) document.getElementById(id).innerHTML = ONO[id].map(([w, m, e]) =>
+  `<div class="ono"><div class="w"><span class="jp" lang="ja">${w}</span>${say(e)}</div><div class="m">${m}</div><div class="e jp" lang="ja">${e}</div></div>`).join('');
+
+const modHolder = document.getElementById('module-slides');
+modHolder.outerHTML = MODULES.map(m => `
+<section class="slide" data-title="模組 ${m.key}：詞彙">
+  <div class="kicker">MODULE ${m.key} ・ 關鍵詞彙</div>
+  <h2>${m.icon} ${m.name}<span class="ja" lang="ja">${m.ja}</span></h2>
+  <div class="body"><div class="row c3">${m.vocab.map(([zh, ja, rd]) => `
+    <div class="ono"><div class="m" style="font-size:24px;margin:0 0 6px">${zh}</div><div class="w" style="font-size:34px"><span class="jp" lang="ja">${ja}</span>${say(rd || ja)}</div>${rd ? `<div class="m jp" lang="ja" style="margin:4px 0 0">${rd}</div>` : ''}</div>`).join('')}
+  </div></div>
+</section>
+<section class="slide" data-title="模組 ${m.key}：解說例句">
+  <div class="kicker">MODULE ${m.key} ・ 解說例句</div>
+  <h2>${m.icon} 這樣說給日本人聽</h2>
+  <div class="body"><div class="lines">${m.phrases.map(lineHTML).join('')}</div></div>
+</section>`).join('');
+
+document.querySelectorAll('[data-script]').forEach(el => {
+  el.innerHTML = el.dataset.script.split(',').map(i => {
+    const [h, ls] = SCRIPT[i];
+    return `<div style="font-size:24px;font-weight:700;color:var(--indigo);margin-top:4px">${h}</div>` + ls.map(l =>
+      `<div class="line" style="padding:14px 24px">${say(l.replace(/＿+/g, '、'))}<div class="jp" lang="ja" style="font-size:30px">${esc(l).replace(/＿+/g, '<span class="blank">　　　</span>')}</div></div>`).join('');
+  }).join('');
+});
+document.querySelectorAll('[data-phr]').forEach(el => el.innerHTML = PHR[el.dataset.phr].map(lineHTML).join(''));
+document.getElementById('roles').innerHTML = ROLES.map(([i, n, z, q]) =>
+  `<div class="role"><div class="i">${i}</div><div class="n jp" lang="ja">${n}</div><div class="z">${z}</div><div class="q">${say(q)}<span class="jp" lang="ja">${q}</span></div></div>`).join('');
+
+/* 學期地圖：標示目前階段（依上課日 2026-09-14 起每週一） */
+(function () {
+  const start = new Date('2026-09-14T00:00:00');
+  const wk = Math.floor((Date.now() - start) / 6048e5) + 1;
+  document.querySelectorAll('#phases .phase').forEach(p => {
+    if (wk >= +p.dataset.from && wk <= +p.dataset.to) p.classList.add('now');
+  });
+})();
+
+/* ---------- 頁腳 ---------- */
+const slides = [...document.querySelectorAll('.slide')];
+slides.forEach((s, i) => {
+  if (!s.classList.contains('cover') && !s.classList.contains('divider'))
+    s.insertAdjacentHTML('beforeend', `<div class="foot"><span>旅遊產業日語 ・ ${s.dataset.title}</span><span>${i + 1} / ${slides.length}</span></div>`);
+});
+
+/* ---------- 縮放 ---------- */
+const stage = document.getElementById('stage');
+function fit() {
+  const s = Math.min(innerWidth / 1600, innerHeight / 900);
+  stage.style.transform = `translate(-50%, -50%) scale(${s})`;
+}
+addEventListener('resize', fit); fit();
+
+/* ---------- 翻頁 ---------- */
+let cur = 0;
+function go(n) {
+  n = Math.max(0, Math.min(slides.length - 1, n));
+  slides[cur].classList.remove('active');
+  cur = n;
+  slides[cur].classList.add('active');
+  document.getElementById('count').textContent = `${cur + 1} / ${slides.length}`;
+  document.querySelector('#bar i').style.width = ((cur + 1) / slides.length * 100) + '%';
+  history.replaceState(null, '', '#' + (cur + 1));
+  if (window.speechSynthesis) speechSynthesis.cancel();
+}
+go((parseInt(location.hash.slice(1)) || 1) - 1);
+
+const toc = document.getElementById('toc');
+document.getElementById('tocList').innerHTML = slides.map((s, i) => `<li><button data-go="${i}"><span>${String(i + 1).padStart(2, '0')}</span>${s.dataset.title}</button></li>`).join('');
+function openToc(on) {
+  toc.classList.toggle('open', on);
+  if (on) toc.querySelectorAll('[data-go]').forEach(b => b.classList.toggle('cur', +b.dataset.go === cur));
+}
+toc.addEventListener('click', e => {
+  const b = e.target.closest('[data-go]');
+  if (b) { go(+b.dataset.go); openToc(false); }
+  else if (e.target === toc || e.target.id === 'tocClose') openToc(false);
+});
+
+function fullscreen() {
+  if (document.fullscreenElement) document.exitFullscreen();
+  else document.documentElement.requestFullscreen?.();
+}
+addEventListener('keydown', e => {
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  if (toc.classList.contains('open')) { if (e.key === 'Escape' || e.key === 'o' || e.key === 'O') openToc(false); return; }
+  if (['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); go(cur + 1); }
+  else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(e.key)) { e.preventDefault(); go(cur - 1); }
+  else if (e.key === 'Home') go(0);
+  else if (e.key === 'End') go(slides.length - 1);
+  else if (e.key === 'f' || e.key === 'F') fullscreen();
+  else if (e.key === 'o' || e.key === 'O') openToc(true);
+});
+document.getElementById('prev').onclick = () => go(cur - 1);
+document.getElementById('next').onclick = () => go(cur + 1);
+document.getElementById('tocBtn').onclick = () => openToc(true);
+document.getElementById('fsBtn').onclick = fullscreen;
+document.getElementById('themeBtn').onclick = () => {
+  const r = document.documentElement;
+  const dark = r.dataset.theme ? r.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  r.dataset.theme = dark ? 'light' : 'dark';
+};
+
+/* 觸控滑動 */
+let tx = null;
+addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+addEventListener('touchend', e => {
+  if (tx === null) return;
+  const dx = e.changedTouches[0].clientX - tx; tx = null;
+  if (Math.abs(dx) > 50) go(cur + (dx < 0 ? 1 : -1));
+});
+
+/* ---------- 發音 ---------- */
+let jaVoice = null;
+function pickVoice() {
+  const vs = speechSynthesis.getVoices();
+  jaVoice = vs.find(v => v.lang === 'ja-JP' && /Kyoko|Google|O-ren|Otoya/.test(v.name)) || vs.find(v => v.lang && v.lang.startsWith('ja')) || null;
+}
+if ('speechSynthesis' in window) { pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
+document.addEventListener('click', e => {
+  const b = e.target.closest('.say');
+  if (!b) return;
+  e.stopPropagation();
+  if (!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(b.dataset.say);
+  u.lang = 'ja-JP'; u.rate = 0.9; if (jaVoice) u.voice = jaVoice;
+  b.classList.add('on'); u.onend = u.onerror = () => b.classList.remove('on');
+  speechSynthesis.speak(u);
+});
+</script>
+</body>
+</html>
