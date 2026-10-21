@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>旅遊產業日語</title>
+<meta name="description" content="115-1 旅遊產業日語（進修部）課程教材：轉譯武器庫、四大文化發信模組、Podcast 腳本、簡報與 QA 應變句型。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f0efe8;
+    --surface: #fbfaf6;
+    --surface-2: #ffffff;
+    --border: #ddd9cb;
+    --ink: #2a2924;
+    --muted: #726e63;
+    --indigo: #223f6b;
+    --indigo-soft: #e6ebf1;
+    --indigo-line: #c3cedd;
+    --seal: #a3392f;
+    --seal-soft: #f3e2df;
+    --seal-line: #e0bcb6;
+    --moss: #4f6b3a;
+    --moss-soft: #e7eedf;
+    --gold: #8a6512;
+    --gold-soft: #f5ecd6;
+    --shadow: 0 1px 2px rgba(40, 35, 20, 0.06), 0 6px 18px rgba(40, 35, 20, 0.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #16181c; --surface: #1e2126; --surface-2: #23262c; --border: #363a42;
+      --ink: #ecebe4; --muted: #a4a196;
+      --indigo: #8fadd9; --indigo-soft: #232f42; --indigo-line: #33456a;
+      --seal: #e0968c; --seal-soft: #33231f; --seal-line: #5a352f;
+      --moss: #a9c78f; --moss-soft: #232c1e; --gold: #e0bd6a; --gold-soft: #312a19;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 18px rgba(0,0,0,.25);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #16181c; --surface: #1e2126; --surface-2: #23262c; --border: #363a42;
+    --ink: #ecebe4; --muted: #a4a196;
+    --indigo: #8fadd9; --indigo-soft: #232f42; --indigo-line: #33456a;
+    --seal: #e0968c; --seal-soft: #33231f; --seal-line: #5a352f;
+    --moss: #a9c78f; --moss-soft: #232c1e; --gold: #e0bd6a; --gold-soft: #312a19;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 18px rgba(0,0,0,.25);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Noto Sans TC", system-ui, sans-serif; line-height: 1.7; font-size: 16px;
+  }
+  .jp, [lang="ja"] { font-family: "Noto Sans JP", "Noto Sans TC", sans-serif; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px 80px; }
+  a { color: var(--indigo); }
+
+  /* Header */
+  header.page { padding: 48px 0 28px; border-bottom: 1px solid var(--border); }
+  .eyebrow { font-size: 13px; letter-spacing: .12em; color: var(--seal); font-weight: 700; }
+  h1 { font-family: "Shippori Mincho", serif; font-weight: 800; font-size: clamp(30px, 6vw, 46px); margin: 6px 0 4px; line-height: 1.25; }
+  h1 small { display: block; font-size: .45em; color: var(--muted); font-weight: 500; margin-top: 6px; }
+  .lead { color: var(--muted); max-width: 720px; margin: 12px 0 0; }
+
+  /* Nav */
+  nav.top {
+    position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 92%, transparent);
+    backdrop-filter: blur(6px); border-bottom: 1px solid var(--border); margin: 0 -16px; padding: 10px 16px;
+  }
+  nav.top .inner { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+  nav.top .inner::-webkit-scrollbar { display: none; }
+  nav.top a {
+    flex: none; text-decoration: none; color: var(--ink); font-size: 14px; padding: 6px 12px;
+    border: 1px solid var(--border); border-radius: 999px; background: var(--surface);
+  }
+  nav.top a:hover { border-color: var(--indigo-line); background: var(--indigo-soft); }
+
+  section.block { padding-top: 44px; }
+  h2 {
+    font-family: "Shippori Mincho", serif; font-size: clamp(22px, 4vw, 28px); margin: 0 0 4px;
+    display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  }
+  h2 .num { color: var(--seal); font-size: .8em; }
+  h2 .ja { font-size: .6em; color: var(--muted); font-weight: 500; }
+  .sec-lead { color: var(--muted); margin: 0 0 18px; }
+  h3 { font-size: 18px; margin: 0 0 8px; }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 18px 20px; box-shadow: var(--shadow);
+  }
+  .grid { display: grid; gap: 14px; }
+  .g2 { grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); }
+  .g3 { grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); }
+
+  /* Goals */
+  .goal .tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 10px; border-radius: 999px; background: var(--indigo-soft); color: var(--indigo); margin-bottom: 8px; }
+  .goal p { margin: 0 0 6px; }
+  .goal p.jp { color: var(--muted); font-size: 14px; }
+
+  /* Timeline */
+  .phase { margin-bottom: 18px; }
+  .phase-head { font-weight: 700; color: var(--indigo); margin: 0 0 8px; font-size: 15px; }
+  .weeks { display: grid; gap: 8px; }
+  .week {
+    display: grid; grid-template-columns: 64px 1fr; gap: 12px; align-items: start;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px;
+  }
+  .week .wk { font-family: "Shippori Mincho", serif; font-weight: 800; color: var(--seal); line-height: 1.2; }
+  .week .wk span { display: block; font-family: "Noto Sans TC"; font-size: 12px; color: var(--muted); font-weight: 400; }
+  .week .t { font-weight: 700; }
+  .week .d { font-size: 14px; color: var(--muted); }
+  .week .links { margin-top: 4px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .week .links a { font-size: 12px; text-decoration: none; padding: 1px 8px; border-radius: 6px; background: var(--indigo-soft); }
+  .week.off { opacity: .55; }
+  .week.now { border-color: var(--seal); box-shadow: 0 0 0 2px var(--seal-soft); }
+  .week.now .wk::after { content: "本週"; display: block; font-family: "Noto Sans TC"; font-size: 11px; color: #fff; background: var(--seal); border-radius: 4px; padding: 0 4px; margin-top: 4px; width: fit-content; }
+  .badge { display: inline-block; font-size: 12px; padding: 0 8px; border-radius: 6px; background: var(--gold-soft); color: var(--gold); font-weight: 700; margin-left: 6px; }
+
+  /* Formula */
+  .formula .no { font-family: "Shippori Mincho", serif; font-size: 32px; font-weight: 800; color: var(--seal); line-height: 1; }
+  .formula .pat { font-size: 18px; font-weight: 700; margin: 8px 0 4px; }
+  .formula .when { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
+  .ex { border-left: 3px solid var(--indigo-line); padding: 4px 0 4px 12px; margin: 8px 0; }
+  .ex .src { font-size: 13px; color: var(--muted); }
+
+  /* Tables */
+  .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; min-width: 560px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { font-size: 13px; color: var(--muted); font-weight: 500; background: var(--surface-2); }
+  tr:last-child td { border-bottom: 0; }
+  td .rd { display: block; font-size: 12px; color: var(--muted); }
+  td.jpcell { font-weight: 500; }
+
+  /* Speak button */
+  .say {
+    border: 1px solid var(--indigo-line); background: var(--indigo-soft); color: var(--indigo);
+    border-radius: 999px; width: 28px; height: 28px; cursor: pointer; font-size: 13px; flex: none;
+    display: inline-grid; place-items: center; vertical-align: middle; padding: 0;
+  }
+  .say:hover { background: var(--indigo); color: var(--surface); }
+  .say.on { background: var(--seal); border-color: var(--seal); color: #fff; }
+
+  /* Module tabs */
+  .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .tabs button {
+    font: inherit; font-size: 14px; cursor: pointer; padding: 8px 14px; border-radius: 10px;
+    border: 1px solid var(--border); background: var(--surface); color: var(--ink);
+  }
+  .tabs button[aria-selected="true"] { background: var(--indigo); color: var(--surface); border-color: var(--indigo); }
+  .mod-intro { margin-bottom: 14px; }
+  .mod-intro .view { color: var(--muted); font-size: 14px; }
+  .phrases { display: grid; gap: 10px; margin-top: 14px; }
+  .phrase { display: flex; gap: 12px; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+  .phrase .jp { font-size: 17px; font-weight: 500; }
+  .phrase .zh { font-size: 14px; color: var(--muted); }
+  .phrase .tip { font-size: 13px; color: var(--moss); margin-top: 2px; }
+  .lbl { font-size: 13px; font-weight: 700; color: var(--seal); margin: 18px 0 8px; letter-spacing: .05em; }
+
+  /* Onomatopoeia chips */
+  .ono-grid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); }
+  .ono { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+  .ono .w { font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .ono .m { font-size: 13px; color: var(--muted); }
+  .ono .e { font-size: 14px; margin-top: 4px; }
+  .cat { display: inline-block; font-size: 11px; padding: 0 6px; border-radius: 4px; background: var(--moss-soft); color: var(--moss); font-weight: 700; }
+
+  /* Script template */
+  .script { counter-reset: s; display: grid; gap: 12px; }
+  .script .part { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; }
+  .script .part h4 { margin: 0 0 6px; font-size: 15px; color: var(--indigo); }
+  .script .part h4 em { font-style: normal; color: var(--muted); font-weight: 400; font-size: 13px; margin-left: 6px; }
+  .script .line { display: flex; gap: 10px; align-items: flex-start; margin: 6px 0; }
+  .blank { border-bottom: 1.5px dashed var(--seal); color: var(--seal); padding: 0 4px; }
+
+  .note { background: var(--gold-soft); border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent); border-radius: 10px; padding: 12px 16px; font-size: 14px; }
+  .note b { color: var(--gold); }
+
+  /* Role cards */
+  .role { border-top: 4px solid var(--seal); }
+  .role .icon { font-size: 26px; }
+  .role .name { font-weight: 700; margin: 4px 0; }
+  .role .q { font-size: 14px; }
+
+  /* Rubric */
+  .rubric td:first-child { font-weight: 700; white-space: nowrap; }
+  .pct { color: var(--seal); font-weight: 800; }
+
+  /* Can-do */
+  .cando { display: grid; gap: 8px; }
+  .cando label { display: flex; gap: 12px; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; cursor: pointer; }
+  .cando input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--moss); flex: none; }
+  .cando label:has(input:checked) { background: var(--moss-soft); border-color: color-mix(in srgb, var(--moss) 40%, transparent); }
+  .cando .jp { font-size: 13px; color: var(--muted); display: block; }
+  .progress { height: 8px; background: var(--border); border-radius: 999px; overflow: hidden; margin: 6px 0 16px; }
+  .progress i { display: block; height: 100%; background: var(--moss); width: 0; transition: width .3s; }
+
+  footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); }
+
+  .theme-btn { position: fixed; right: 16px; bottom: 16px; z-index: 20; border: 1px solid var(--border); background: var(--surface); color: var(--ink); border-radius: 999px; width: 42px; height: 42px; cursor: pointer; box-shadow: var(--shadow); font-size: 18px; }
+
+  @media (max-width: 560px) {
+    .week { grid-template-columns: 48px 1fr; gap: 10px; }
+    .card { padding: 16px; }
+  }
+  @media print {
+    nav.top, .theme-btn, .say { display: none !important; }
+    body { background: #fff; }
+    .card, .phrase, .week { box-shadow: none; break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="page">
+    <div class="eyebrow">115-1 學期 ・ 進修部 ・ 18 週</div>
+    <h1>旅遊產業日語<small lang="ja">観光発信のための日本語 ── 台湾の「当たり前」を日本語で伝える</small></h1>
+    <p class="lead">不用死背單字，學會「換句話說」與「擬聲語」，從觀光客的眼睛重新看見台灣，最後用日語為雙北景點做提案，並在真實 QA 中穩穩接住每一個問題。點 <button class="say" aria-label="範例發音" onclick="speak('いらっしゃいませ',this)">▶</button> 可聽日語發音。</p>
+  </header>
+
+  <nav class="top" aria-label="章節導覽">
+    <div class="inner">
+      <a href="#goals">課程目標</a>
+      <a href="#schedule">18 週進度</a>
+      <a href="#formula">言い換え公式</a>
+      <a href="#onomatopoeia">オノマトペ</a>
+      <a href="#modules">四大文化模組</a>
+      <a href="#fieldwork">士林夜市踏查</a>
+      <a href="#podcast">Podcast 腳本</a>
+      <a href="#presentation">簡報句型</a>
+      <a href="#qa">QA 應變</a>
+      <a href="#rubric">評分標準</a>
+      <a href="#cando">Can-do 自評</a>
+    </div>
+  </nav>
+
+  <!-- ============ 1. 課程目標 ============ -->
+  <section class="block" id="goals">
+    <h2><span class="num">01</span>課程目標<span class="ja" lang="ja">授業の目標</span></h2>
+    <p class="sec-lead">三項核心能力，貫穿 18 週的每一個任務。</p>
+    <div class="grid g3">
+      <div class="card goal">
+        <span class="tag">預防性協商與魅力發信</span>
+        <p>學會運用「換句話說」的技巧與視覺輔助，不再死背單字，能用日語自信介紹台灣魅力。</p>
+        <p class="jp" lang="ja">「言い換え」のテクニックや視覚資料を活用し、暗記に頼らず、台湾の魅力を日本語で自信を持って紹介する。</p>
+      </div>
+      <div class="card goal">
+        <span class="tag">換位思考與後設認知</span>
+        <p>透過台日文化比較，從觀光客視角重新發現並清楚解釋台灣讓外國人好奇的文化特色。</p>
+        <p class="jp" lang="ja">観光客の視点に立って日台文化の違いを比較し、外国人が興味を持つ台湾の特徴を再発見して分かりやすく説明する。</p>
+      </div>
+      <div class="card goal">
+        <span class="tag">即時意義協商與應變</span>
+        <p>與外國朋友雙向交流；遇到不會的單字或表達瓶頸時，能運用技巧保持溝通順暢。</p>
+        <p class="jp" lang="ja">言葉に詰まった際にも、コミュニケーションを円滑に保つ工夫やスキルを身につける。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2. 18 週進度 ============ -->
+  <section class="block" id="schedule">
+    <h2><span class="num">02</span>18 週進度<span class="ja" lang="ja">授業スケジュール</span></h2>
+    <p class="sec-lead">四個階段：建立武器庫 → 實地需求分析與 Podcast → 視覺化與應變 → 實境發表。本週會自動標示。</p>
+    <div id="timeline"></div>
+  </section>
+
+  <!-- ============ 3. 言い換え ============ -->
+  <section class="block" id="formula">
+    <h2><span class="num">03</span>轉譯武器庫：言い換え三大公式<span class="ja" lang="ja">言い換えの3つの型</span></h2>
+    <p class="sec-lead">想不起單字？不要停下來！用你已經會的簡單日語「繞過去」。W2 學、整學期都在用。</p>
+    <div class="grid g3">
+      <div class="card formula">
+        <div class="no">壱</div>
+        <div class="pat jp" lang="ja">〇〇の一種で、△△です</div>
+        <div class="when">【上位概念＋特徵】先說它屬於哪一類，再補一個最大的特色。</div>
+        <div class="ex"><div class="src">臭豆腐</div><div class="jp" lang="ja">豆腐の一種で、においがとても強い料理です。 <button class="say" onclick="speak('豆腐の一種で、においがとても強い料理です。',this)">▶</button></div></div>
+        <div class="ex"><div class="src">滷肉飯</div><div class="jp" lang="ja">ご飯の一種で、甘辛く煮た豚肉がのっています。 <button class="say" onclick="speak('ご飯の一種で、甘辛く煮た豚肉がのっています。',this)">▶</button></div></div>
+      </div>
+      <div class="card formula">
+        <div class="no">弐</div>
+        <div class="pat jp" lang="ja">〇〇みたいな／〇〇のような △△</div>
+        <div class="when">【比喻・類比】拿日本人熟悉的東西來比較，畫面感最強。</div>
+        <div class="ex"><div class="src">QQ 的口感</div><div class="jp" lang="ja">お餅みたいな、もちもちした食感です。 <button class="say" onclick="speak('お餅みたいな、もちもちした食感です。',this)">▶</button></div></div>
+        <div class="ex"><div class="src">夜市</div><div class="jp" lang="ja">毎晩やっているお祭りの屋台みたいな場所です。 <button class="say" onclick="speak('毎晩やっているお祭りの屋台みたいな場所です。',this)">▶</button></div></div>
+      </div>
+      <div class="card formula">
+        <div class="no">参</div>
+        <div class="pat jp" lang="ja">〇〇するための／〇〇する時に使う △△</div>
+        <div class="when">【功能・目的】說明「做什麼用的」，不知道名稱也能說清楚。</div>
+        <div class="ex"><div class="src">待轉區</div><div class="jp" lang="ja">バイクが左に曲がるために、待つ場所です。 <button class="say" onclick="speak('バイクが左に曲がるために、待つ場所です。',this)">▶</button></div></div>
+        <div class="ex"><div class="src">筊杯</div><div class="jp" lang="ja">神様に「はい」か「いいえ」を聞く時に使う道具です。 <button class="say" onclick="speak('神様に、はいか、いいえを聞く時に使う道具です。',this)">▶</button></div></div>
+      </div>
+    </div>
+    <div class="note" style="margin-top:14px"><b>小撇步：</b>三個公式可以疊加！「豆腐の一種で（壱）、チーズみたいなにおいがします（弐）。」加上一個オノマトペ（下一節），日本人立刻有畫面。</div>
+  </section>
+
+  <!-- ============ 4. オノマトペ ============ -->
+  <section class="block" id="onomatopoeia">
+    <h2><span class="num">04</span>擬聲擬態語<span class="ja" lang="ja">オノマトペで「画面」を伝える</span></h2>
+    <p class="sec-lead">日本人超愛オノマトペ。一個詞就能傳達口感、聲音、氣氛，是導覽解說的祕密武器。</p>
+    <div class="ono-grid" id="onoGrid"></div>
+  </section>
+
+  <!-- ============ 5. 四大模組 ============ -->
+  <section class="block" id="modules">
+    <h2><span class="num">05</span>四大文化發信模組<span class="ja" lang="ja">4つの文化発信モジュール</span></h2>
+    <p class="sec-lead">每組選定一個模組作為士林夜市踏查、Podcast 與期末提案的主軸。每個模組附關鍵詞彙與「可直接用」的解說句。</p>
+    <div class="tabs" role="tablist" id="modTabs"></div>
+    <div id="modBody"></div>
+  </section>
+
+  <!-- ============ 6. 田野調查 ============ -->
+  <section class="block" id="fieldwork">
+    <h2><span class="num">06</span>士林夜市踏查：觀光客視角尋寶<span class="ja" lang="ja">フィールドワーク</span></h2>
+    <p class="sec-lead">W5 移地教學。用「日本觀光客」的眼睛走一圈，針對自己組的模組拍下三種照片，上傳群組打卡。</p>
+    <div class="grid g3">
+      <div class="card">
+        <h3>🔍 找不同 <span class="jp" lang="ja" style="font-weight:400;color:var(--muted)">違いを探す</span></h3>
+        <p style="margin:0 0 8px">日本沒有、或做法完全不同的東西。</p>
+        <div class="jp" lang="ja" style="font-size:14px">日本ではあまり見かけないと思いますが、台湾では〜。</div>
+      </div>
+      <div class="card">
+        <h3>❓ 找疑問 <span class="jp" lang="ja" style="font-weight:400;color:var(--muted)">疑問を探す</span></h3>
+        <p style="margin:0 0 8px">日本人看到會「咦？這是什麼？怎麼用？」的地方。</p>
+        <div class="jp" lang="ja" style="font-size:14px">「これは何だろう？」と思うかもしれませんね。実は〜。</div>
+      </div>
+      <div class="card">
+        <h3>🛡️ 找安心 <span class="jp" lang="ja" style="font-weight:400;color:var(--muted)">安心を探す</span></h3>
+        <p style="margin:0 0 8px">能化解不安的資訊：衛生、價格、安全、付款方式。</p>
+        <div class="jp" lang="ja" style="font-size:14px">安心してください。〜ので、大丈夫ですよ。</div>
+      </div>
+    </div>
+    <div class="lbl">同理心地圖：日本觀光客在想什麼？</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>面向</th><th>引導問題</th><th>夜市裡的例子</th></tr></thead>
+        <tbody>
+          <tr><td>👀 看到 <span class="rd jp" lang="ja">見ている</span></td><td>第一眼映入眼簾的是什麼？</td><td>人潮、看不懂的中文招牌、滿地機車</td></tr>
+          <tr><td>👂 聽到 <span class="rd jp" lang="ja">聞いている</span></td><td>耳邊是什麼聲音？</td><td>叫賣聲、鐵板ジュージュー、機車ブンブン</td></tr>
+          <tr><td>😨 害怕 <span class="rd jp" lang="ja">不安・恐怖</span></td><td>什麼讓他猶豫、不敢嘗試？</td><td>不能刷卡？衛生？要排隊嗎？怎麼點？</td></tr>
+          <tr><td>✨ 好奇 <span class="rd jp" lang="ja">好奇心</span></td><td>什麼讓他忍不住想拍照、想問？</td><td>臭豆腐的味道、射氣球、大雞排</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="lbl">現場訪問句（向攤販／路人搭話）</div>
+    <div class="phrases" id="fieldPhrases"></div>
+  </section>
+
+  <!-- ============ 7. Podcast ============ -->
+  <section class="block" id="podcast">
+    <h2><span class="num">07</span>期中任務：觀光導覽 Podcast<span class="ja" lang="ja">観光案内ポッドキャスト</span></h2>
+    <p class="sec-lead">W9 繳交。3–5 分鐘、<b>零 BGM</b> 純淨版 MP3。照下面的四段結構寫腳本，<span class="blank">　　</span> 處填入你們組的內容。</p>
+    <div class="script" id="scriptTpl"></div>
+
+    <div class="lbl">轉譯歷程對照表（W6 與腳本一起繳交）</div>
+    <p style="margin:0 0 10px;font-size:14px;color:var(--muted)">把「卡關的單字」和「最後怎麼繞過去」記下來。這是你們最珍貴的學習軌跡，期末會再拿出來對照。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>卡關的中文</th><th>第一次想到的說法</th><th>最後採用的日語</th><th>使用策略</th></tr></thead>
+        <tbody>
+          <tr><td>QQ</td><td><span class="jp" lang="ja">（わからない…）</span></td><td class="jpcell jp" lang="ja">お餅みたいに、もちもちしています</td><td>弐・比喻 ＋ オノマトペ</td></tr>
+          <tr><td>騎樓</td><td><span class="jp" lang="ja">きろう？</span></td><td class="jpcell jp" lang="ja">屋根がある歩道で、雨の日も濡れません</td><td>参・功能</td></tr>
+          <tr><td>統一發票</td><td><span class="jp" lang="ja">レシート</span></td><td class="jpcell jp" lang="ja">宝くじにもなるレシートです</td><td>壱・上位概念＋特徵</td></tr>
+          <tr><td style="color:var(--muted)">（你的例子）</td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note" style="margin-top:14px"><b>錄音小叮嚀（W8）：</b>① 每句話結尾放慢、句尾不要吞掉 ② 用「〜んです」「〜ですよね」增加對話感 ③ 練到可以不看稿講 70% ④ 找安靜的角落，手機離嘴巴約一個拳頭。</div>
+  </section>
+
+  <!-- ============ 8. 簡報 ============ -->
+  <section class="block" id="presentation">
+    <h2><span class="num">08</span>期末提案：簡報發表句型<span class="ja" lang="ja">プレゼンの決まり文句</span></h2>
+    <p class="sec-lead">W11 起把 Podcast 內容 ＋ 士林夜市照片轉為 PPT，把「微觀文化」放進「雙北景點」裡。下列句型照順序就是一份完整發表。</p>
+    <div id="presPhrases"></div>
+    <div class="note" style="margin-top:14px"><b>隱藏預備頁面（W13）：</b>在最後一頁之後，準備 2–3 張「可能被問到」的補充頁（價格表、交通路線、地圖、比較照片）。被問倒時就說 <span class="jp" lang="ja">「実は、こちらに資料を用意しました。」</span>，瞬間化危機為轉機。</div>
+  </section>
+
+  <!-- ============ 9. QA ============ -->
+  <section class="block" id="qa">
+    <h2><span class="num">09</span>QA 應變：意義協商工具箱<span class="ja" lang="ja">質疑応答サバイバル</span></h2>
+    <p class="sec-lead">被問倒不可怕，沉默才可怕。先用「拖延神句」爭取 3 秒，再用言い換え回答。W15 規則：<b>回答前一定要先說一句拖延神句！</b></p>
+    <div id="qaPhrases"></div>
+
+    <div class="lbl">聽眾任務卡（W13、W16–17 使用）</div>
+    <p style="margin:0 0 10px;font-size:14px;color:var(--muted)">台下同學抽一張卡，扮演該觀光客，依角色提問。講者要針對不同聽眾調整回答。</p>
+    <div class="grid g3" id="roles"></div>
+  </section>
+
+  <!-- ============ 10. 評分 ============ -->
+  <section class="block" id="rubric">
+    <h2><span class="num">10</span>評分標準<span class="ja" lang="ja">評価基準</span></h2>
+    <p class="sec-lead">重點在「有沒有把文化說清楚、有沒有想辦法溝通」，而不是文法零錯誤。</p>
+    <div class="grid g2">
+      <div>
+        <h3>期中 Podcast（W9）</h3>
+        <div class="table-wrap">
+          <table class="rubric" style="min-width:0">
+            <tbody>
+              <tr><td>文化痛點精準度</td><td>是否打中日本觀光客真正的疑問或不安？有「找不同・找疑問・找安心」。</td><td class="pct">35%</td></tr>
+              <tr><td>轉譯策略力</td><td>是否靈活運用言い換え三公式與オノマトペ，而非直接念中文名詞？</td><td class="pct">35%</td></tr>
+              <tr><td>語音表達</td><td>語速、清晰度、自然的對話感（不像在念稿）。</td><td class="pct">20%</td></tr>
+              <tr><td>格式</td><td>3–5 分鐘、零 BGM、MP3、準時上傳。</td><td class="pct">10%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <h3>期末提案發表與 QA（W16–17）</h3>
+        <div class="table-wrap">
+          <table class="rubric" style="min-width:0">
+            <tbody>
+              <tr><td>內容與觀光客視角</td><td>景點與文化模組的連結、對日本客的吸引力。</td><td class="pct">25%</td></tr>
+              <tr><td>視覺化</td><td>照片、圖示能輔助說明，降低語言負擔；有隱藏預備頁。</td><td class="pct">20%</td></tr>
+              <tr><td>日語發信力</td><td>全日文、結構清楚、善用言い換え。</td><td class="pct">25%</td></tr>
+              <tr><td>QA 應變</td><td>能用拖延神句、確認句、言い換え接住問題，不放棄溝通。</td><td class="pct">30%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 11. Can-do ============ -->
+  <section class="block" id="cando">
+    <h2><span class="num">11</span>Can-do 自我檢核<span class="ja" lang="ja">できることチェック</span></h2>
+    <p class="sec-lead">勾選你已經做得到的項目（只存在你自己的瀏覽器）。W18 回頭看看，你成長了多少？</p>
+    <div class="progress"><i id="bar"></i></div>
+    <div class="cando" id="candoList"></div>
+  </section>
+
+  <footer>
+    115-1 旅遊產業日語（進修部）課程教材。日語發音使用瀏覽器內建語音（建議使用 Chrome / Safari）。
+  </footer>
+</div>
+
+<button class="theme-btn" id="themeBtn" aria-label="切換深淺色">◐</button>
+
+<script>
+/* ---------- 發音 ---------- */
+let jaVoice = null;
+function pickVoice() {
+  const vs = (window.speechSynthesis && speechSynthesis.getVoices()) || [];
+  jaVoice = vs.find(v => v.lang === 'ja-JP' && /Kyoko|Google|O-ren|Otoya/.test(v.name)) || vs.find(v => v.lang && v.lang.startsWith('ja')) || null;
+}
+if ('speechSynthesis' in window) { pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
+function speak(text, btn) {
+  if (!('speechSynthesis' in window)) { alert('此瀏覽器不支援語音朗讀'); return; }
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'ja-JP'; u.rate = 0.9; if (jaVoice) u.voice = jaVoice;
+  if (btn) { btn.classList.add('on'); u.onend = u.onerror = () => btn.classList.remove('on'); }
+  speechSynthesis.speak(u);
+}
+const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const sayBtn = t => `<button class="say" aria-label="播放發音" onclick="speak('${esc(t).replace(/'/g,"\\'")}',this)">▶</button>`;
+function phraseHTML(p) {
+  return `<div class="phrase">${sayBtn(p.ja)}<div><div class="jp" lang="ja">${esc(p.ja)}</div><div class="zh">${esc(p.zh)}</div>${p.tip ? `<div class="tip">💡 ${esc(p.tip)}</div>` : ''}</div></div>`;
+}
+function groupHTML(groups) {
+  return groups.map(g => `<div class="lbl">${esc(g.title)}</div><div class="phrases" style="margin-top:0">${g.items.map(phraseHTML).join('')}</div>`).join('');
+}
+
+/* ---------- 18 週進度 ---------- */
+const SCHEDULE = [
+  { phase: '第一階段｜建立轉譯武器庫', weeks: [
+    { w: 1, date: '2026-09-14', t: '課程導論與異文化觀察破冰', d: '「下班必吃宵夜」分組；Taboo 禁語猜謎，用日語解釋台灣物品但不能說出關鍵字。宣告期末任務。', links: [['goals','課程目標'],['rubric','評分']] },
+    { w: 2, date: '2026-09-21', t: '轉譯武器庫：言い換え公式與擬聲語', d: '言い換え三大公式＋オノマトペ，小組拿圖卡限時演練。', links: [['formula','言い換え'],['onomatopoeia','オノマトペ']] },
+    { w: 3, date: '2026-09-28', t: '國定假日（教師節）', d: '停課', off: true },
+  ]},
+  { phase: '第二階段｜需求分析與 Podcast', weeks: [
+    { w: 4, date: '2026-10-05', t: '觀光客視角探討與文化模組導入', d: '同理心地圖：日本客的恐懼與好奇；各組選定四大文化模組之一。', badge: '發布 Podcast 任務', links: [['modules','四大模組'],['fieldwork','同理心地圖']] },
+    { w: 5, date: '2026-10-12', t: '移地教學：士林夜市田野調查', d: '拍下「找不同・找疑問・找安心」照片並群組打卡，回收尋寶單。', links: [['fieldwork','踏查指南']] },
+    { w: 6, date: '2026-10-19', t: 'Podcast 企劃：腳本初稿與轉譯歷程', d: '照片＋擬聲詞草擬初稿；填寫「轉譯歷程對照表」。', links: [['podcast','腳本模板']] },
+    { w: 7, date: '2026-10-26', t: '國定假日（光復節補假）', d: '停課', off: true },
+    { w: 8, date: '2026-11-02', t: '腳本總診斷與錄音語調微調', d: '老師巡視潤飾腳本，學生試錄，練習不看稿的自然語感。', links: [['podcast','錄音叮嚀']] },
+    { w: 9, date: '2026-11-09', t: '期中作業：觀光導覽 Podcast 繳交', d: '不上實體課。上傳 3–5 分鐘零 BGM 的 MP3。', badge: '期中繳交', links: [['rubric','評分標準']] },
+  ]},
+  { phase: '第三階段｜視覺化與應變', weeks: [
+    { w: 10, date: '2026-11-16', t: '專題講座與期中成果回顧', d: '期中音檔互評；講者分享帶外國朋友觀光的真實衝擊案例；規劃 PPT 草圖。' },
+    { w: 11, date: '2026-11-23', t: '觀光簡報設計與在地文化視覺化', d: 'Podcast 內容＋士林夜市照片轉為 PPT，把微觀文化放進雙北景點。', links: [['presentation','簡報句型']] },
+    { w: 12, date: '2026-11-30', t: '即興應變與溝通實作：好奇寶寶來了！', d: '老師隨機丟出突發提問，小組立刻用現有日語應答。', links: [['qa','QA 工具箱']] },
+    { w: 13, date: '2026-12-07', t: '聽眾任務導向與提問防禦設計', d: '聽眾發問句型、聽眾角色任務卡；PPT 加入「隱藏預備頁面」。', links: [['qa','聽眾任務卡']] },
+  ]},
+  { phase: '第四階段｜實境演練與發表', weeks: [
+    { w: 14, date: '2026-12-14', t: '實境彩排（一）輪轉防禦戰', d: 'Speed Dating：A 組 3 分鐘簡介、B 組丟難題，按鈴換組。' },
+    { w: 15, date: '2026-12-21', t: '實境彩排（二）求生診斷室', d: '拖延神句字卡，怪題搶答——先講拖延神句才能回答。', links: [['qa','拖延神句']] },
+    { w: 16, date: '2026-12-28', t: '期末提案發表與真實社群 QA（一）', d: '前 5 組全日文發表；台下依聽眾任務卡扮演觀光客提問。', badge: '期末發表' },
+    { w: 17, date: '2027-01-04', t: '期末提案發表與真實社群 QA（二）', d: '後 5 組發表與 QA。', badge: '期末發表' },
+    { w: 18, date: '2027-01-11', t: '課程總結與學習反思', d: '頒發最佳觀光大使；拿出 W6 轉譯歷程對照表與期末表現自我對照。', links: [['cando','Can-do 自評']] },
+  ]},
+];
+(function renderTimeline() {
+  const today = new Date(); today.setHours(0,0,0,0);
+  // 標示「下一次（或今天）要上的課」，跳過停課週
+  const all = SCHEDULE.flatMap(p => p.weeks).filter(wk => !wk.off);
+  const next = all.find(wk => new Date(wk.date + 'T23:59:59') >= today);
+  const nowW = next ? next.w : null;
+  document.getElementById('timeline').innerHTML = SCHEDULE.map(p => `
+    <div class="phase"><div class="phase-head">${p.phase}</div><div class="weeks">
+    ${p.weeks.map(wk => {
+      const [, m, d] = wk.date.split('-');
+      return `<div class="week${wk.off ? ' off' : ''}${wk.w === nowW ? ' now' : ''}">
+        <div class="wk">W${wk.w}<span>${+m}/${+d}</span></div>
+        <div><div class="t">${wk.t}${wk.badge ? `<span class="badge">${wk.badge}</span>` : ''}</div>
+        <div class="d">${wk.d}</div>
+        ${wk.links ? `<div class="links">${wk.links.map(([id, l]) => `<a href="#${id}">→ ${l}</a>`).join('')}</div>` : ''}</div>
+      </div>`;
+    }).join('')}</div></div>`).join('');
+})();
+
+/* ---------- オノマトペ ---------- */
+const ONO = [
+  ['もちもち', '口感', 'QQ、有彈性有嚼勁', 'タピオカはもちもちしています。'],
+  ['ぷるぷる', '口感', '軟嫩、Q 彈晃動', '豆花はぷるぷるで、やさしい味です。'],
+  ['サクサク', '口感', '酥脆（輕）', 'このフライドチキンはサクサクです。'],
+  ['カリカリ', '口感', '脆硬、焦脆', '外はカリカリ、中はふわふわです。'],
+  ['ふわふわ', '口感', '鬆軟、蓬鬆', 'ふわふわのかき氷です。'],
+  ['とろとろ', '口感', '濃稠、入口即化', 'とろとろの豚の角煮がのっています。'],
+  ['アツアツ', '溫度', '熱騰騰', 'アツアツのうちに食べてください。'],
+  ['ジュージュー', '聲音', '鐵板滋滋作響', '鉄板でステーキがジュージュー焼けています。'],
+  ['ぐつぐつ', '聲音', '咕嘟咕嘟燉煮', '鍋がぐつぐつ煮えています。'],
+  ['ゴクゴク', '聲音', '大口喝', '暑い日はタピオカミルクティーをゴクゴク！'],
+  ['ブンブン', '聲音', '機車轟轟聲', 'バイクがブンブン走っています。'],
+  ['ガヤガヤ', '氣氛', '人聲鼎沸、吵雜', '夜市はいつもガヤガヤしています。'],
+  ['ワイワイ', '氣氛', '熱熱鬧鬧、開心喧鬧', 'みんなでワイワイ飲みましょう。'],
+  ['ぎゅうぎゅう', '氣氛', '擠得滿滿的', '週末の夜市は人でぎゅうぎゅうです。'],
+  ['キラキラ', '視覺', '閃閃發亮', '屋台の明かりがキラキラしています。'],
+  ['プンプン', '氣味', '（氣味）陣陣飄來', '臭豆腐のにおいがプンプンします。'],
+];
+document.getElementById('onoGrid').innerHTML = ONO.map(([w, c, m, e]) => `
+  <div class="ono"><div class="w"><span class="jp" lang="ja">${w}</span>${sayBtn(e)}</div>
+  <div class="m"><span class="cat">${c}</span> ${m}</div>
+  <div class="e jp" lang="ja">${e}</div></div>`).join('');
+
+/* ---------- 四大文化模組 ---------- */
+const MODULES = [
+  { key: 'A', name: '街頭生存與移動潛規則', ja: '街歩きと移動の暗黙ルール', view: '外國人在台灣街頭最害怕、最困惑的移動細節與空間感。',
+    vocab: [
+      ['機車', 'バイク・スクーター', '', '台灣人口約每 2 人 1 台'],
+      ['機車瀑布', 'バイクの滝', 'ばいくのたき', '綠燈一亮，機車像瀑布般湧出'],
+      ['兩段式左轉', '二段階左折', 'にだんかいさせつ', '台灣右側通行，所以是「左折」'],
+      ['待轉區', '待機エリア', 'たいきえりあ', '用公式参：左に曲がるために待つ場所'],
+      ['安全帽', 'ヘルメット', '', '騎機車一定要戴'],
+      ['騎樓', '騎楼（屋根付きの歩道）', 'きろう', '可避雨，但有高低差'],
+      ['捷運', 'MRT・地下鉄', 'めとろ', ''],
+      ['博愛座', '優先席', 'ゆうせんせき', '台灣年輕人常常不敢坐'],
+      ['悠遊卡', '悠遊カード（ICカード）', 'ゆうゆうかーど', '類似日本的 Suica'],
+      ['招手攔公車', '手を挙げてバスを止める', 'てをあげてばすをとめる', '不招手公車不會停'],
+    ],
+    phrases: [
+      { ja: '台湾では、バスに乗りたい時は手を挙げてください。挙げないと止まりません。', zh: '在台灣想搭公車要招手，不招手不會停。', tip: '找安心：先講規則，觀光客就不會錯過公車。' },
+      { ja: 'MRTの中では、水やガムもだめです。罰金があるので気をつけてください。', zh: '捷運上連喝水、嚼口香糖都不行，會被罰款，請小心。' },
+      { ja: '信号が青になると、バイクが滝みたいにブンブン出てきます。', zh: '綠燈一亮，機車像瀑布一樣轟轟衝出來。', tip: '比喻＋オノマトペ的組合技。' },
+      { ja: '騎楼は屋根がある歩道なので、雨の日でも濡れずに歩けます。', zh: '騎樓是有屋頂的人行道，下雨天也不會淋濕。' },
+      { ja: '段差が多いので、足元に気をつけてくださいね。', zh: '高低差很多，請注意腳邊喔。' },
+    ]},
+  { key: 'B', name: '庶民胃袋與點餐', ja: '庶民のグルメと注文術', view: '不只是介紹食物，而是「我該怎麼點餐、怎麼與在地人互動」。',
+    vocab: [
+      ['甜度', '甘さ', 'あまさ', '全糖・少糖・半糖・微糖・無糖'],
+      ['半糖', '甘さ半分', 'あまさはんぶん', ''],
+      ['冰塊', '氷', 'こおり', '正常冰・少冰・微冰・去冰'],
+      ['去冰', '氷なし', 'こおりなし', ''],
+      ['加料', 'トッピング', '', '珍珠、椰果、布丁…'],
+      ['珍珠', 'タピオカ', '', ''],
+      ['內用／外帶', '店内／持ち帰り', 'てんない／もちかえり', ''],
+      ['畫單', '注文用紙に自分で書く', 'ちゅうもんようし', '早餐店、熱炒常見'],
+      ['殺價', '値段交渉・値切る', 'ねだんこうしょう・ねぎる', '傳統市場可以，百貨公司不行'],
+      ['熱炒', '台湾式居酒屋', 'たいわんしきいざかや', '公式壱'],
+    ],
+    phrases: [
+      { ja: 'ドリンクは、甘さと氷の量を自分で選べます。', zh: '飲料可以自己選甜度和冰塊量。', tip: '找不同：日本的飲料店很少這樣客製化。' },
+      { ja: '日本人には、まず「半糖」がおすすめです。全糖はかなり甘いですよ。', zh: '建議日本人先點半糖，全糖相當甜喔。' },
+      { ja: '朝ごはん屋さんでは、注文用紙に自分で書いて、店員さんに渡します。', zh: '早餐店要自己在點餐單上寫好，交給店員。' },
+      { ja: 'おばさんが「イケメン！」「美人さん！」と呼びますが、これは台湾流のあいさつです。', zh: '阿姨會叫你「帥哥！」「美女！」，這是台灣式的打招呼。', tip: '找疑問→找安心：先預告，日本客就不會嚇到。' },
+      { ja: '熱炒では、ビールは自分で冷蔵庫から取ってきます。', zh: '熱炒店的啤酒要自己去冰箱拿。' },
+    ]},
+  { key: 'C', name: '台灣時間感與生活節奏', ja: '台湾の暮らしのリズム', view: '台灣人習以為常，卻讓日本人驚奇的生活節奏與服務。',
+    vocab: [
+      ['垃圾車', 'ゴミ収集車', 'ごみしゅうしゅうしゃ', ''],
+      ['〈給愛麗絲〉', '「エリーゼのために」', '', '垃圾車的音樂'],
+      ['資源回收', '資源ごみ・リサイクル', 'しげんごみ', ''],
+      ['便利商店', 'コンビニ', '', '7-11、全家'],
+      ['茶葉蛋', '茶葉卵', 'ちゃばたまご', '超商門口那股香味'],
+      ['繳費', '料金の支払い', 'りょうきんのしはらい', '水電、罰單都能在超商繳'],
+      ['多媒體機台', 'マルチメディア端末（ibon）', 'たんまつ', '買票、列印'],
+      ['自助洗衣店', 'コインランドリー', '', '24 小時營業'],
+      ['租屋族', '一人暮らしの人', 'ひとりぐらし', ''],
+    ],
+    phrases: [
+      { ja: '夕方、「エリーゼのために」が聞こえたら、ゴミ収集車が来た合図です。', zh: '傍晚聽到〈給愛麗絲〉，就是垃圾車來了的信號。', tip: '找疑問：日本客聽到音樂一定會好奇。' },
+      { ja: 'ゴミを持って、みんなで車を追いかけます。ご近所さんと話す時間でもあります。', zh: '大家提著垃圾追車，這也是和鄰居聊天的時間。' },
+      { ja: 'コンビニでは、電気代を払ったり、チケットを買ったりできます。', zh: '在超商可以繳電費、買票。' },
+      { ja: '入口の近くの、ちょっと独特なにおいは茶葉卵です。お茶で煮た卵ですよ。', zh: '入口附近那股特別的味道是茶葉蛋，用茶煮的蛋喔。', tip: '公式壱＋参。' },
+      { ja: '台湾のコンビニには座る場所があって、そこで食べてもいいです。', zh: '台灣的超商有座位區，可以在那裡吃。' },
+    ]},
+  { key: 'D', name: '信仰與日常', ja: '信仰と日常の価値観', view: '台灣人生活中的小迷信、神聖空間與獨特的社會制度。',
+    vocab: [
+      ['廟', '廟（お寺のような場所）', 'びょう', '公式弐'],
+      ['拜拜', 'お参り', 'おまいり', ''],
+      ['香', '線香', 'せんこう', ''],
+      ['擲筊', 'ポエ占い', 'ぽえうらない', '筊杯台語唸 poe'],
+      ['聖筊', '「はい」の答え', '', '一正一反'],
+      ['求籤', 'おみくじを引く', 'おみくじをひく', '需要先擲到聖筊'],
+      ['月老', '縁結びの神様', 'えんむすびのかみさま', ''],
+      ['統一發票', '統一発票（宝くじ付きレシート）', 'とういつはっぴょう', ''],
+      ['對獎', '当選番号を確認する', 'とうせんばんごう', '每兩個月一次'],
+      ['捐發票', 'レシートを寄付する', 'きふする', ''],
+    ],
+    phrases: [
+      { ja: '赤い三日月みたいな道具を二つ投げて、神様に質問します。', zh: '把兩個像紅色新月的道具擲出去，向神明提問。', tip: '公式弐（比喻）說明筊杯的形狀。' },
+      { ja: '表と裏が一つずつ出たら、神様の答えは「はい」です。', zh: '一正一反，神明的回答就是「是」。' },
+      { ja: '日本のおみくじと違って、引く前に神様の許可が必要なんです。', zh: '和日本的籤不同，抽之前需要神明允許。', tip: '找不同：拿日本的經驗做對比。' },
+      { ja: '台湾のレシートは宝くじにもなっていて、最高で1000万元当たります。', zh: '台灣的發票同時也是彩券，最高可中 1000 萬元。' },
+      { ja: 'いらないレシートは、レジの横の箱に入れて寄付できます。', zh: '不要的發票可以投到收銀台旁的箱子捐出去。' },
+    ]},
+];
+const tabs = document.getElementById('modTabs'), body = document.getElementById('modBody');
+function showMod(i) {
+  const m = MODULES[i];
+  [...tabs.children].forEach((b, j) => b.setAttribute('aria-selected', j === i));
+  body.innerHTML = `
+    <div class="mod-intro card"><h3>${m.key}. ${m.name}　<span class="jp" lang="ja" style="font-weight:400;color:var(--muted)">${m.ja}</span></h3>
+    <div class="view">觀光客視角：${m.view}</div></div>
+    <div class="lbl">關鍵詞彙</div>
+    <div class="table-wrap"><table><thead><tr><th style="width:44px"></th><th>中文</th><th>日語</th><th>備註</th></tr></thead><tbody>
+    ${m.vocab.map(([zh, ja, rd, note]) => `<tr><td>${sayBtn(rd ? rd.split('・')[0].split('／')[0] : ja.replace(/（.*）/, ''))}</td><td>${zh}</td><td class="jpcell"><span class="jp" lang="ja">${ja}</span>${rd ? `<span class="rd jp" lang="ja">${rd}</span>` : ''}</td><td style="font-size:14px;color:var(--muted)">${note}</td></tr>`).join('')}
+    </tbody></table></div>
+    <div class="lbl">解說例句</div>
+    <div class="phrases" style="margin-top:0">${m.phrases.map(phraseHTML).join('')}</div>`;
+}
+tabs.innerHTML = MODULES.map((m, i) => `<button role="tab" onclick="showMod(${i})">${m.key}. ${m.name}</button>`).join('');
+showMod(0);
+
+/* ---------- 田野訪問句 ---------- */
+document.getElementById('fieldPhrases').innerHTML = [
+  { ja: 'すみません、写真を撮ってもいいですか。', zh: '不好意思，可以拍照嗎？（※ 實際訪問攤販請用中文，這句練習給日本客用）' },
+  { ja: 'これは日本語で何と言えばいいでしょうか。', zh: '這個用日語該怎麼說呢？' },
+  { ja: 'カードは使えますか。現金だけですか。', zh: '可以刷卡嗎？只收現金嗎？', tip: '找安心：付款方式是日本客最在意的之一。' },
+  { ja: 'これは辛いですか。', zh: '這個會辣嗎？' },
+].map(phraseHTML).join('');
+
+/* ---------- Podcast 腳本模板 ---------- */
+const SCRIPT = [
+  { h: '① オープニング', em: '開場・約 30 秒', lines: [
+    'みなさん、こんにちは。「＿＿＿」の時間です。',
+    '台湾から、＿＿＿と＿＿＿がお届けします。',
+    '今日のテーマは「＿＿＿」です。' ]},
+  { h: '② 違いを探す', em: '找不同・約 1 分', lines: [
+    '日本ではあまり見かけないと思いますが、台湾では＿＿＿。',
+    '初めて見た日本人は、きっとびっくりすると思います。' ]},
+  { h: '③ 疑問を解く', em: '找疑問・約 1–2 分', lines: [
+    '「これは何だろう？」と思いますよね。実は、＿＿＿の一種で、＿＿＿です。',
+    '例えるなら、日本の＿＿＿みたいな感じです。',
+    '音で言うと、＿＿＿＿＿＿（オノマトペ）！' ]},
+  { h: '④ 安心ポイントとエンディング', em: '找安心・約 1 分', lines: [
+    'でも、安心してください。＿＿＿ので、大丈夫ですよ。',
+    '台湾に来たら、ぜひ一度＿＿＿してみてください。',
+    '以上、＿＿＿でした。またね！' ]},
+];
+document.getElementById('scriptTpl').innerHTML = SCRIPT.map(p => `
+  <div class="part"><h4>${p.h}<em>${p.em}</em></h4>
+  ${p.lines.map(l => `<div class="line">${sayBtn(l.replace(/＿+/g, '、'))}<span class="jp" lang="ja">${esc(l).replace(/＿+/g, m => `<span class="blank">${'　'.repeat(Math.ceil(m.length/2))}</span>`)}</span></div>`).join('')}
+  </div>`).join('');
+
+/* ---------- 簡報句型 ---------- */
+document.getElementById('presPhrases').innerHTML = groupHTML([
+  { title: '開場', items: [
+    { ja: 'みなさん、こんにちは。第＿グループです。', zh: '大家好，我們是第＿組。' },
+    { ja: '今日は、日本の皆さんに台北の〇〇をご紹介します。', zh: '今天要向日本朋友介紹台北的〇〇。' },
+  ]},
+  { title: '架構與轉場', items: [
+    { ja: 'まず、〇〇について説明します。', zh: '首先說明〇〇。' },
+    { ja: '次に、〇〇を見てみましょう。', zh: '接著來看看〇〇。' },
+    { ja: '最後に、〇〇のおすすめポイントをお伝えします。', zh: '最後告訴大家〇〇的推薦重點。' },
+  ]},
+  { title: '帶入視覺', items: [
+    { ja: 'こちらの写真をご覧ください。', zh: '請看這張照片。' },
+    { ja: '写真の右側に見えるのが〇〇です。', zh: '照片右邊看到的就是〇〇。' },
+    { ja: '言葉で説明するより、見たほうがわかりやすいと思います。', zh: '比起用說的，看圖應該更容易懂。', tip: '視覺輔助本身就是一種意義協商策略。' },
+  ]},
+  { title: '結尾與邀請提問', items: [
+    { ja: 'これで発表を終わります。ご清聴ありがとうございました。', zh: '報告到此結束，謝謝聆聽。' },
+    { ja: '何かご質問はありますか。', zh: '有什麼問題嗎？' },
+  ]},
+]);
+
+/* ---------- QA 句型 ---------- */
+document.getElementById('qaPhrases').innerHTML = groupHTML([
+  { title: '拖延神句（先爭取 3 秒）', items: [
+    { ja: 'いい質問ですね。', zh: '好問題呢。', tip: '萬用第一句，同時讓提問者感覺被重視。' },
+    { ja: 'そうですね……。', zh: '這個嘛……' },
+    { ja: '少し考えさせてください。', zh: '請讓我想一下。' },
+    { ja: 'チームで少し相談してもいいですか。', zh: '可以和組員商量一下嗎？' },
+  ]},
+  { title: '確認句（聽不懂時）', items: [
+    { ja: 'すみません、もう一度お願いできますか。', zh: '不好意思，可以再說一次嗎？' },
+    { ja: 'もう少しゆっくり話していただけますか。', zh: '可以說慢一點嗎？' },
+    { ja: '〇〇というのは、△△という意味ですか。', zh: '您說的〇〇，是△△的意思嗎？' },
+    { ja: 'つまり、〇〇ということでしょうか。', zh: '也就是說，是〇〇的意思嗎？' },
+  ]},
+  { title: '換句話說（想不起單字時）', items: [
+    { ja: '日本語でうまく言えないんですが……。', zh: '用日語不太會說……', tip: '先坦白，對方會更有耐心等你。' },
+    { ja: 'なんというか、〇〇みたいな感じです。', zh: '該怎麼說呢，有點像〇〇的感覺。' },
+    { ja: '写真で見せたほうがわかりやすいと思います。', zh: '用照片給您看應該比較清楚。' },
+    { ja: '伝わりましたか。', zh: '這樣有傳達到嗎？' },
+  ]},
+  { title: '聽眾發問句型（當觀光客的你）', items: [
+    { ja: '〇〇はどうして△△んですか。', zh: '〇〇為什麼會△△呢？' },
+    { ja: '日本人でも〇〇できますか。', zh: '日本人也能〇〇嗎？' },
+    { ja: 'いくらぐらいかかりますか。', zh: '大概要花多少錢？' },
+    { ja: '一番のおすすめは何ですか。', zh: '最推薦的是什麼？' },
+    { ja: '〇〇の時、気をつけることはありますか。', zh: '〇〇的時候，有什麼要注意的嗎？' },
+  ]},
+]);
+
+/* ---------- 聽眾任務卡 ---------- */
+const ROLES = [
+  ['😰', '心配性な人', '擔心安全、衛生的觀光客', '衛生面は大丈夫ですか。お腹を壊しませんか。'],
+  ['🍜', '食いしん坊', '只在乎好不好吃的美食家', 'ここで一番おいしいものは何ですか。'],
+  ['💰', '節約派の大学生', '預算很少的背包客', '1000元でどれぐらい楽しめますか。'],
+  ['👨‍👩‍👧', '子連れの家族', '帶小孩的家庭', '子どもやベビーカーでも行けますか。'],
+  ['📸', 'インスタ好き', '只想拍美照的網紅', '一番映える写真スポットはどこですか。'],
+  ['🧓', '初めての海外旅行', '第一次出國、不會中文的長輩', '中国語が話せなくても大丈夫ですか。'],
+];
+document.getElementById('roles').innerHTML = ROLES.map(([i, n, z, q]) => `
+  <div class="card role"><div class="icon">${i}</div><div class="name"><span class="jp" lang="ja">${n}</span>　<span style="font-weight:400;font-size:14px;color:var(--muted)">${z}</span></div>
+  <div class="q jp" lang="ja" style="display:flex;gap:8px;align-items:flex-start">${sayBtn(q)}<span>${q}</span></div></div>`).join('');
+
+/* ---------- Can-do ---------- */
+const CANDO = [
+  ['想不起單字時，能用言い換え三公式之一繞過去。', 'わからない言葉があっても、言い換えで説明できる。'],
+  ['能用 3 個以上的オノマトペ描述台灣食物或街景。', 'オノマトペを使って、台湾の食べ物や街の様子を表現できる。'],
+  ['能從日本觀光客的角度，說出台灣讓他們驚訝或不安的地方。', '日本人観光客の視点で、台湾の驚きや不安のポイントを説明できる。'],
+  ['能用日語說明自己組文化模組的 3 個重點。', '自分のグループのテーマについて、3つのポイントを日本語で説明できる。'],
+  ['能完成 3–5 分鐘的日語導覽 Podcast。', '3〜5分の観光案内ポッドキャストを作ることができる。'],
+  ['能用照片、圖示輔助說明，降低語言負擔。', '写真や図を使って、わかりやすく説明できる。'],
+  ['被問到聽不懂的問題時，能用確認句請對方再說一次或換句話說。', '質問がわからない時、聞き返したり確認したりできる。'],
+  ['被問倒時，能先用拖延神句爭取時間，而不是沉默。', '答えに困った時も、黙らずにつなぎの言葉で時間をかせげる。'],
+  ['能針對不同類型的聽眾，調整回答的內容。', '聞き手のタイプに合わせて、答え方を変えられる。'],
+  ['能全程用日語完成景點提案與 QA。', '観光スポットの提案と質疑応答を、すべて日本語で行える。'],
+];
+const KEY = 'tj-cando-v1';
+let saved = [];
+try { saved = JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) {}
+const list = document.getElementById('candoList');
+list.innerHTML = CANDO.map(([zh, ja], i) => `<label><input type="checkbox" data-i="${i}" ${saved.includes(i) ? 'checked' : ''}><span>${zh}<span class="jp" lang="ja">${ja}</span></span></label>`).join('');
+function updateBar() {
+  const on = [...list.querySelectorAll('input:checked')].map(x => +x.dataset.i);
+  document.getElementById('bar').style.width = (on.length / CANDO.length * 100) + '%';
+  try { localStorage.setItem(KEY, JSON.stringify(on)); } catch (e) {}
+}
+list.addEventListener('change', updateBar); updateBar();
+
+/* ---------- 深淺色 ---------- */
+document.getElementById('themeBtn').onclick = () => {
+  const r = document.documentElement;
+  const dark = r.dataset.theme ? r.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  r.dataset.theme = dark ? 'light' : 'dark';
+};
+</script>
+</body>
+</html>
